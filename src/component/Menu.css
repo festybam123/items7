@@ -1,0 +1,178 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link, .nav-link1, .nav-link2 {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+/* .nav-link:hover, .nav-link1:hover, .nav-link2:hover {
+  background-color: #f0f0f0;
+} */
+
+.nav-link1 {
+  font-size: 1.2rem;
+}
+
+.nav-link2 {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.nav-link2:hover {
+  background-color: #ff5252;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-link:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-icon {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.hero-content_menu {
+  position: relative;
+  min-height: 80vh;
+  display: grid;
+  align-items: center;
+  /* removed dark overlay so the image displays without a black band */
+  background-image: url('/images/menu1.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: none;
+  background-color: transparent;
+  margin-bottom: 0;
+}
+
+.hero-title1{
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.hero-title h1{
+  margin-top: 20px;
+  
+}
+
+.separator {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  margin-top: 50px;
+}
+.btn_1 {
+  background-color: #fff;
+  color: #8EB04A;;
+  padding: 15px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid #8EB04A;
+  transition: background-color 0.3s;
+}
+
+.btn_1:hover {
+  background-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+
+}
+
+/* Styling for the menu sections */
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.menu-section {
+  margin-bottom: 30px;
+  width: 90%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.menu-title {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333333c7;
+}
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+.item-name {
+  font-size: 24px;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Added styles for Menu Item one */
+.item-name.menu-item-one {
+  font-weight: bold;
+  font-size: 24px;
+}
+.item-price {
+  font-size: 25px;
+  font-weight: bold;
+  color: #00000083;
+}
+
+/* Added styles for menu item numbers and descriptions */
+.menu-item-number {
+  font-size: 30px;
+  color: #333333d7;
+}
+
+.menu-item-description {
+  font-size: 16px;
+  color: #777;
+}

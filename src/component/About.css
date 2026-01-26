@@ -1,0 +1,104 @@
+.hero-content_about {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* removed dark overlay so the image displays without a black band */
+  background-image: url('/images/CT1.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: none;
+  background-color: transparent;
+  margin-bottom: 0;
+  background-size: cover;
+}
+
+.theme-content {
+  text-align: center;
+  padding: 2rem;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  border-top: 2px solid #ddd;
+}
+
+.theme-content h2 {
+  font-size: 3.5rem;
+  font-family: "Brush Script MT", cursive ;
+  margin-bottom: 1rem;
+  color: #444444e5;
+  border-bottom: 0.5px solid #ccc; /* Reduced from 1px to 0.5px */
+  display: inline-block; /* Ensures the border matches the content width */
+}
+
+.theme-content p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 850px;
+  font-family: 'playfair display', serif;
+  color: #333333d3;
+}
+
+.about-image {
+  height: auto;
+  width: 78%;
+  height: 100vh;
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Added styles for the photo credit section */
+.photo-credit {
+  font-size: 1rem; /* Small font size */
+  text-align: center;
+  color: #666;
+}
+
+/* Added hover effect for links in the photo credit section */
+.photo-credit a {
+  color: #8EB04A;
+  text-decoration:underline ;
+}
+
+.photo-credit a:hover {
+  text-decoration: none;
+  text-decoration-color: #8EB04A;
+}
+
+.main-cnt{
+  align-self: center;
+  justify-items: center;
+  padding: 20px;
+}
+.main-cnt p{
+  font-size: 20px;
+  margin: 0 auto;
+  font-family: 'playfair display', serif;
+  color: #333333d3;
+}
+
+.main-cnt h2{
+  font-size: 35px;
+  font-weight: lighter;
+  margin-top: 20px;
+  font-family: 'playfair display', serif;
+  color: #333333d3;
+}
+
+.main-cnt span {
+  margin: 0;
+  display: block;
+  text-align: right;
+  margin-right: 55%;
+  color: #333333d3;
+}
+
+.main-cnt a{
+  color: #8EB04A;
+  text-decoration: underline;
+}
+
+.main-cnt a:hover {
+  text-decoration: none;
+}
