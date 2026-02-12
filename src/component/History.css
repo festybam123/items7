@@ -1,0 +1,26 @@
+.history-section{
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  /* removed dark overlay so the image displays without a black band */
+  background-image: url('/images/history1.jpg');
+  background-repeat: no-repeat;
+  animation: none;
+  background-color: transparent;
+  background-size: contain;
+  width: 70%;
+  height: 100vh;
+  margin-top: 25px;
+}
+
+.history-title1{
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.history-title h1{
+  margin-top: 20px;
+  
+}

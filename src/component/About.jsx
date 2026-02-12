@@ -68,7 +68,7 @@ function About() {
             React.createElement(Link, { to: '/templates/Sidebar Page', className: 'dropdown-link' }, 'Sidebar Page')
           )
       ),
-      React.createElement(Link, { to: '/order-online', className: 'nav-link2' }, 'ORDER ONLINE')
+      React.createElement(Link, { to: '/order', className: 'nav-link2' }, 'ORDER ONLINE')
     ),
       React.createElement(
           
@@ -127,7 +127,7 @@ function About() {
         ),
          React.createElement('footer', { className: 'footer' },
                      React.createElement('div', { className: 'footer-content' },
-                       React.createElement('div', { className: 'footer-section1' },
+                       React.createElement('div', { className: 'footer-section' },
                          React.createElement('h3', null, 'LOCATIONS'),
                          React.createElement('hr', { className: 'footer-divider' }),
                          React.createElement('ul', null,
@@ -176,4 +176,4 @@ function About() {
   );
 }
 
-export default About
+export default About;

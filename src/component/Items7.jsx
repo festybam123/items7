@@ -24,22 +24,22 @@ function Items7() {
         React.createElement('div', { className: 'nav-item', onMouseEnter: () => setAboutOpen(true), onMouseLeave: () => setAboutOpen(false) },
           React.createElement(Link, { to: '/about', className: 'nav-link' }, 'ABOUT', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
           aboutOpen && React.createElement('div', { className: 'dropdown' },
-            React.createElement(Link, { to: '/about/history', className: 'dropdown-link' }, 'History'),
-            React.createElement(Link, { to: '/about/news', className: 'dropdown-link' }, 'News'),
-            React.createElement(Link, { to: '/about/contact', className: 'dropdown-link' }, 'Contact')
+            React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
+            React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
+            React.createElement(Link, { to: '/contact', className: 'dropdown-link' }, 'Contact')
           )
         ),
         React.createElement('div', { className: 'nav-item', onMouseEnter: () => setTemplatesOpen(true), onMouseLeave: () => setTemplatesOpen(false) },
           React.createElement(Link, { to: '/templates', className: 'nav-link' }, 'TEMPLATES', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
           templatesOpen && React.createElement('div', { className: 'dropdown' },
-            React.createElement(Link, { to: '/templates/blog', className: 'dropdown-link' }, 'Blog'),
-            React.createElement(Link, { to: '/templates/category', className: 'dropdown-link' }, 'Category'),
-            React.createElement(Link, { to: '/templates/product', className: 'dropdown-link' }, 'Product'),
-            React.createElement(Link, { to: '/templates/Product Category', className: 'dropdown-link' }, 'Product Category'),
-            React.createElement(Link, { to: '/templates/Sidebar Page', className: 'dropdown-link' }, 'Sidebar Page')
+            React.createElement(Link, { to: '/blog', className: 'dropdown-link' }, 'Blog'),
+            React.createElement(Link, { to: '/category', className: 'dropdown-link' }, 'Category'),
+            React.createElement(Link, { to: '/product', className: 'dropdown-link' }, 'Product'),
+            React.createElement(Link, { to: '/product-category', className: 'dropdown-link' }, 'Product Category'),
+            React.createElement(Link, { to: '/sidebar-page', className: 'dropdown-link' }, 'Sidebar Page')
           )
         ),
-        React.createElement(Link, { to: '/order-online', className: 'nav-link2' }, 'ORDER ONLINE')
+        React.createElement(Link, { to: '/order', className: 'nav-link2' }, 'ORDER ONLINE')
       ),
 
 
@@ -152,7 +152,7 @@ function Items7() {
       ),
       React.createElement('footer', { className: 'footer' },
         React.createElement('div', { className: 'footer-content' },
-          React.createElement('div', { className: 'footer-section1' },
+          React.createElement('div', { className: 'footer-section' },
             React.createElement('h3', null, 'LOCATIONS'),
             React.createElement('hr', { className: 'footer-divider' }),
             React.createElement('ul', null,
