@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import './order.css';
+import './Order.css';
 
 function Order() {
   const [dropdownOpen, setDropdownOpen] = useState(null);
