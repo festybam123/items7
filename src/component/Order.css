@@ -44,7 +44,7 @@
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .nav-link2:hover {
@@ -78,7 +78,7 @@
   padding: 8px 16px;
   color: #333;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .dropdown-link:hover {
