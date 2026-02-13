@@ -813,6 +813,20 @@
   .navbar {
     flex-wrap: wrap;
     gap: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .nav-link1 {
+    font-size: 1.2rem;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+  
+  .nav-link2 {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
   
   .footer-buttons {
@@ -821,6 +835,55 @@
   
   .footer-btn {
     text-align: center;
+  }
+  
+  .order-main-container {
+    flex-direction: column;
+  }
+  
+  .order_grid {
+    width: 100%;
+  }
+  
+  .order-aside {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .hero-content_order {
+    min-height: 50vh;
+  }
+  
+  .grid-inner-title {
+    padding: 15px;
+  }
+  
+  .order {
+    font-size: 3rem;
+  }
+  
+  .nav-order {
+    width: 100%;
+    min-width: auto;
+    padding: 8px 12px;
+    font-size: 1rem;
+  }
+  
+  .img_grid {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .order-title {
+    font-size: 1rem;
+  }
+  
+  .cart-container {
+    padding: 20px;
+  }
+  
+  .search-container {
+    flex-direction: column;
   }
 }
 

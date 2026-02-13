@@ -908,3 +908,191 @@ body {
   }
 }
 
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.5rem;
+  }
+  
+  .nav-link1 {
+    margin-left: 10px;
+    font-size: 24px;
+  }
+  
+  .nav-link {
+    margin: 0 0.3rem;
+    font-size: 12px;
+  }
+  
+  .nav-link:nth-child(2) {
+    margin-left: 0;
+  }
+  
+  .nav-link2 {
+    padding: 8px;
+    font-size: 12px;
+  }
+  
+  .hero-title {
+    font-size: 12vh;
+  }
+  
+  .hero-subtitle {
+    font-size: 3vh;
+  }
+  
+  .hero-cta {
+    width: 60%;
+    font-size: medium;
+  }
+  
+  .hero {
+    min-height: 60vh;
+    background-size: cover;
+  }
+  
+  .hero-secondary {
+    min-height: 50vh;
+    height: auto;
+  }
+  
+  .image-flex {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .flex-image1, .flex-image2, .flex-image3, .flex-image4, .flex-image5 {
+    width: 100%;
+    height: 40vh;
+    margin: 0.5rem 0;
+  }
+  
+  .image-text1, .image-text2, .image-text3, .image-text4, .image-text5 {
+    font-size: 40px;
+  }
+  
+  .image-button1, .image-button2, .image-button3, .image-button4, .image-button5 {
+    font-size: 14px;
+    padding: 8px;
+  }
+  
+  .img_cnt_inner {
+    width: 95%;
+    padding: 10px;
+  }
+  
+  .img_cnt_title {
+    font-size: 2.5rem;
+  }
+  
+  .img_cnt_subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .oder_btn {
+    width: 80%;
+    font-size: medium;
+    margin-top: 1.5rem;
+  }
+  
+  .spacer, .spacer2 {
+    flex-direction: column;
+    width: 95%;
+    padding: 1rem;
+  }
+  
+  .spacer_img, .spacer_copy {
+    width: 100%;
+  }
+  
+  .spacer_img {
+    margin-bottom: 15px;
+  }
+  
+  .spacer2_img, .spacer2_copy {
+    width: 100%;
+  }
+  
+  .spacer2_img {
+    margin-bottom: 15px;
+  }
+  
+  .spacer_text {
+    font-size: 1.5rem;
+  }
+  
+  .spacer_text2 {
+    font-size: 1.2rem;
+  }
+  
+  .spacer2_text {
+    font-size: 50px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  
+  .footer-section {
+    min-width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link1 {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  
+  .nav-link {
+    font-size: 10px;
+    margin: 0 0.2rem;
+  }
+  
+  .nav-link2 {
+    padding: 6px;
+    font-size: 10px;
+  }
+  
+  .hero-title {
+    font-size: 10vh;
+  }
+  
+  .hero-subtitle {
+    font-size: 2.5vh;
+  }
+  
+  .hero-cta {
+    width: 80%;
+    font-size: small;
+  }
+  
+  .image-text1, .image-text2, .image-text3, .image-text4, .image-text5 {
+    font-size: 30px;
+  }
+  
+  .flex-image1, .flex-image2, .flex-image3, .flex-image4, .flex-image5 {
+    height: 30vh;
+  }
+  
+  .img_cnt_title {
+    font-size: 2rem;
+  }
+  
+  .img_cnt_subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .spacer_text {
+    font-size: 1.2rem;
+  }
+  
+  .spacer2_text {
+    font-size: 40px;
+  }
+}
+

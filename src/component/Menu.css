@@ -176,3 +176,94 @@
   font-size: 16px;
   color: #777;
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .nav-link1 {
+    font-size: 1.2rem;
+  }
+  
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .nav-link2 {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .hero-content_menu {
+    min-height: 50vh;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .separator {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn_1 {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .menu-section {
+    width: 95%;
+    padding-bottom: 15px;
+  }
+  
+  .menu-title {
+    font-size: 1.8rem;
+  }
+  
+  .menu-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .item-name {
+    font-size: 1.2rem;
+  }
+  
+  .item-price {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .separator {
+    gap: 8px;
+  }
+  
+  .btn_1 {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .menu-title {
+    font-size: 1.5rem;
+  }
+  
+  .item-name {
+    font-size: 1rem;
+  }
+  
+  .item-price {
+    font-size: 1rem;
+  }
+}
