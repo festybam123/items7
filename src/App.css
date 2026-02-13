@@ -435,7 +435,8 @@ body {
   font-weight: bold;
   text-decoration: none;
   color: white;
-}
+} 
+
 
 
 /* .hero-secondary-title {
@@ -454,18 +455,17 @@ body {
 }
 
 
-
 /* .nav-link {
   background-image: url('/images/pix4.avif');
 } */
 
-.hero {
+/* .hero {
   background-image: url('/images/pix2.jpg');
   background-size: 110% 110%;
   background-repeat: no-repeat;
   background-position: 0% 50%;
   animation: moveBackground 30s infinite linear;
-}
+} */
 
 @keyframes moveBackground {
   0% {
