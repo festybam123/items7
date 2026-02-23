@@ -51,12 +51,7 @@ function Menu() {
           onMouseEnter: () => handleMouseEnter('templates'),
           onMouseLeave: handleMouseLeave,
         },
-        React.createElement(
-          Link,
-          { to: '/templates', className: 'nav-link' },
-          'TEMPLATES',
-          React.createElement('span', { className: 'dropdown-icon' }, '▼')
-        ),
+        React.createElement('div', { className: 'nav-link' }, 'TEMPLATES', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
         dropdownOpen === 'templates' &&
           React.createElement(
             'div',

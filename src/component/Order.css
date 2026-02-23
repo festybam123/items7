@@ -33,9 +33,7 @@
   transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-  color: #8EB04A;
-}
+/* .nav-link:hover removed to disable hover color */
 
 .nav-link2 {
   background: #8EB04A;
@@ -245,7 +243,7 @@
 
 .order_title {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   color: #000000b4;
   text-align: left;
 }
@@ -301,6 +299,29 @@
   margin-top: 0.6rem;
   width: 100%;
   text-align: center;
+}
+
+.pagination-container {
+  margin-left: 45%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-btn{
+  background: #fff;
+  color: #000000dc;
+  text-decoration: none;
+  border: 1px solid gray;
+  font-weight: 600;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background: #808080c0;
+  color: #fff;
+  border: 1px solid #8EB04A;
 }
 
 /* Order page main container */
@@ -374,6 +395,7 @@
 .browse-store-link {
   display: inline-block;
   margin-top: 8px;
+  font-size: larger;
   color: #8EB04A;
   text-decoration: underline;
   cursor: pointer;

@@ -14,7 +14,6 @@ function Items7() {
   const addToCart = (item) => {
     setCartIds(prev => prev.includes(item.id) ? prev : [...prev, item.id]);
   };
-
   return (
     React.createElement(React.Fragment, null,
       React.createElement('nav', { className: 'navbar' },
@@ -30,7 +29,7 @@ function Items7() {
           )
         ),
         React.createElement('div', { className: 'nav-item', onMouseEnter: () => setTemplatesOpen(true), onMouseLeave: () => setTemplatesOpen(false) },
-          React.createElement(Link, { to: '/templates', className: 'nav-link' }, 'TEMPLATES', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
+          React.createElement('div', { className: 'nav-link' }, 'TEMPLATES', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
           templatesOpen && React.createElement('div', { className: 'dropdown' },
             React.createElement(Link, { to: '/blog', className: 'dropdown-link' }, 'Blog'),
             React.createElement(Link, { to: '/category', className: 'dropdown-link' }, 'Category'),

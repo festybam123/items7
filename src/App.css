@@ -28,6 +28,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: sans-serif;
+  cursor: pointer;
 }
 
 .nav-link:nth-child(2) {
@@ -44,11 +45,12 @@
   color: white;
 }
 
+/* .nav-link:hover removed to disable hover color */
+
 .nav-link2:hover{
   transition: transform 0.3s ease;
   border-radius: 2px solid white;
   transform: scale(1.05);
-   background-color: #7aa03f;
 }
 
 .nav-item {
@@ -60,7 +62,7 @@
   top: 0;
   /* left: 100%; */
   nav-down: auto;
-  margin-top: 20px;
+  margin-top: 25px;
   background-color: rgba(255, 255, 255, 0.95);
   border: 1px solid #dee2e6;
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
@@ -80,8 +82,12 @@
 }
 
 .dropdown-link:hover {
-  background-color: #f1f3f5;
+  background-color: #f8f9fa;
+  color: #000000;
+  transition: background-color 0.3s ease;
 }
+
+/* .dropdown-link:hover removed to disable hover color */
 
 .dropdown-icon {
   margin-left: 5px;

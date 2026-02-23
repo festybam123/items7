@@ -35,19 +35,21 @@ function Order() {
     return 'down';
   };
      const popularItems = [
-    { id: 1, src: '/images/oder12.jpg', title: 'DOUBLE DOGS', price: '$22.00' },
-    { id: 2, src: '/images/oder1.jpg', title: 'MAHI AHI TACOS', price: '$18.50' },
-    { id: 3, src: '/images/oder2.jpg', title: 'FRENSH TOAST', price: '$16.75' },
-    { id: 4, src: '/images/pix8.jpg', title: 'DOUBLE DOGS', price: '$22.00' },
-    { id: 5, src: '/images/pix10.jpg', title: 'MAHI AHI TACOS', price: '$18.50' },
-    { id: 6, src: '/images/oder3.jpg', title: 'FRENSH TOAST', price: '$16.75' },
-    { id: 7, src: '/images/oder4.jpg', title: 'DOUBLE DOGS', price: '$22.00' },
-    { id: 8, src: '/images/oder5.jpg', title: 'MAHI AHI TACOS', price: '$18.50' },
-    { id: 9, src: '/images/pix9.jpg', title: 'FRENSH TOAST', price: '$16.75' },
-    { id: 10, src: '/images/oder6.jpg', title: 'DOUBLE DOGS', price: '$22.00' },
-    { id: 11, src: '/images/oder7.jpg', title: 'MAHI AHI TACOS', price: '$18.50' },
-    { id: 12, src: '/images/oder8.jpg', title: 'FRENSH TOAST', price: '$16.75' },
-
+    { id: 1, src: '/images/oder12.jpg', title: 'BUFFALO BURGER', price: '$18.00' },
+    { id: 2, src: '/images/oder1.jpg', title: 'CIRUS SANGRIA', price: '$9.50' },
+    { id: 3, src: '/images/oder2.jpg', title: 'CUCUMBER SALAD', price: '$12.75' },
+    { id: 4, src: '/images/pix8.jpg', title: 'DOUBLE BURGER', price: '$22.99' },
+    { id: 5, src: '/images/pix10.jpg', title: 'FRENSG TOAST', price: '$16.50' },
+    { id: 6, src: '/images/oder3.jpg', title: 'GREEN GOBLIN', price: '$12.99' },
+    { id: 7, src: '/images/oder4.jpg', title: 'GRILLED SALMON', price: '$38.00' },
+    { id: 8, src: '/images/oder5.jpg', title: 'KEY LIME RASPBERRY PIE', price: '$12.75' },
+    { id: 9, src: '/images/pix9.jpg', title: 'MAHI AHI TACOS', price: '$18.50' },
+    { id: 10, src: '/images/oder6.jpg', title: 'MANGO MARTINI', price: '$14.99' },
+    { id: 11, src: '/images/oder7.jpg', title: 'OLD FASHIONED', price: '$14.50' },
+    { id: 12, src: '/images/oder8.jpg', title: 'PINK LEMONADE SPRITZER', price: '$11.99' },
+    { id: 13, src: '/images/oder9.jpg', title: 'SHAKE CAKE', price: '$12.75' },
+    { id: 14, src: '/images/oder10.jpg', title: 'Souvlaki Plate', price: '$32.50' },
+    { id: 15, src: '/images/oder11.jpg', title: 'THE DUDE', price: '$11.99' },
   ];
   const [cartIds, setCartIds] = useState([]);
   const [quantities, setQuantities] = useState({});
@@ -95,7 +97,7 @@ function Order() {
   const [query, setQuery] = useState('');
   const [keyword, setKeyword] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 12;
   
   const displayedItems = popularItems.filter(i => i.title.toLowerCase().includes(keyword.toLowerCase().trim()));
   
@@ -113,6 +115,7 @@ function Order() {
     }
   };
   
+
   useEffect(() => {
     setCurrentPage(1);
   }, [keyword]);
@@ -157,12 +160,7 @@ function Order() {
                 onMouseEnter: () => handleMouseEnter('templates'),
                 onMouseLeave: handleMouseLeave,
               },
-              React.createElement(
-                Link,
-                { to: '/templates', className: 'nav-link' },
-                'TEMPLATES',
-                React.createElement('span', { className: 'dropdown-icon' }, '▼')
-              ),
+              React.createElement('div', { className: 'nav-link' }, 'TEMPLATES', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
               dropdownOpen === 'templates' &&
                 React.createElement(
                   'div',
@@ -211,7 +209,7 @@ function Order() {
             )
           ),
           React.createElement('div', { id: 'store-browse', className: 'img_grid' },
-            displayedItems.map((item) => React.createElement('div', { key: item.id, className: 'grid_card' },
+            paginatedItems.map((item) => React.createElement('div', { key: item.id, className: 'grid_card' },
               React.createElement(Link, { to: '/menu' },
                 React.createElement('img', { src: item.src, alt: item.title, className: 'grid_img' })
               ),
@@ -224,7 +222,26 @@ function Order() {
                   ? React.createElement('span', { className: 'order-cart-added' }, 'Added')
                   : React.createElement('button', { className: 'order_cart2', onClick: () => addToCart(item) }, 'ADD TO CART')
               )
-            ))
+            )),
+            React.createElement('div', { className: 'pagination-container' },
+              React.createElement('button', {
+                className: `pagination-arrow prev ${currentPage === 1 ? 'disabled' : ''}`,
+                onClick: () => goToPage(currentPage - 1),
+                disabled: currentPage === 1
+              }, '←'),
+              Array.from({ length: Math.ceil(displayedItems.length / itemsPerPage) }, (_, i) => i + 1).map(page =>
+                React.createElement('button', {
+                  key: page,
+                  onClick: () => goToPage(page),
+                  className: `pagination-btn ${currentPage === page ? 'active' : ''}`
+                }, page)
+              ),
+              React.createElement('button', {
+                className: `pagination-arrow next ${currentPage === totalPages ? 'disabled' : ''}`,
+                onClick: () => goToPage(currentPage + 1),
+                disabled: currentPage === totalPages
+              }, '→')
+            )
           )
         )
       ),
@@ -240,7 +257,7 @@ function Order() {
           cartIds.length === 0
             ? React.createElement('div', null,
                 React.createElement('p', { className: 'cart-empty' }, 'Your cart is currently empty!'),
-                React.createElement('a', { href: '#store-browse', className: 'browse-store-link' }, 'Browse store')
+                React.createElement('a', { href: '#store-browse', className: 'browse-store-link' }, 'Browse store.')
               )
             : React.createElement(React.Fragment, null,
                 React.createElement('h3', { className: 'cart-title' }, 'Products in cart'),

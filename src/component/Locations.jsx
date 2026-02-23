@@ -54,12 +54,9 @@ function Locations() {
           onMouseEnter: () => setTemplatesOpen(true),
           onMouseLeave: () => setTemplatesOpen(false),
         },
-        React.createElement(
-          Link,
-          { to: '/templates', className: 'nav-link' },
-          'TEMPLATES',
-          React.createElement('span', { className: 'dropdown-icon' }, '▼')
-        ),
+        React.createElement
+        ('div', { className: 'nav-link' }, 
+          'TEMPLATES', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
         templatesOpen &&
           React.createElement(
             'div',
