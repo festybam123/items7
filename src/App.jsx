@@ -7,6 +7,8 @@ import Menu from './component/Menu.jsx'
 import About from './component/About.jsx'
 import Order from './component/Order.jsx'
 import History from './component/History.jsx'
+import News from './component/News.jsx'
+import NewsFull from './component/NewsFull.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 
@@ -21,6 +23,8 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/order' element={<Order />} />
         <Route path='/history' element={<History />} />
+        <Route path='/news' element={<News />} />
+        <Route path='/news/full' element={<NewsFull />} />
       </Routes>
     </BrowserRouter>
   )

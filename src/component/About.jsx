@@ -39,9 +39,9 @@ function About() {
           React.createElement(
             'div',
             { className: 'dropdown' },
-            React.createElement(Link, { to: '/about/history', className: 'dropdown-link' }, 'History'),
-            React.createElement(Link, { to: '/about/news', className: 'dropdown-link' }, 'News'),
-            React.createElement(Link, { to: '/about/contact', className: 'dropdown-link' }, 'Contact')
+            React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
+            React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
+            React.createElement(Link, { to: '/contact', className: 'dropdown-link' }, 'Contact')
           )
       ),
       React.createElement(

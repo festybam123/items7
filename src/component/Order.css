@@ -332,19 +332,24 @@
   margin-top: 20px;
 }
 
-/* Aside section */
-.order-aside {
-  flex: 0 0 280px;
-  background: rgb(255, 255, 255);
-  padding: 50px;
-  border-radius: 8px;
-  backdrop-filter: blur(2px);
-}
-
 .search-container {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
+   padding: 25px;
+}
+
+.order_aside{
+         margin: 0;
+          padding: 20px 20px 0 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          position: relative;
+          background: rgb(255,255,255);
+          border-radius: 8px;
+          backdrop-filter: blur(2px);
 }
 
 .order-search-input {
@@ -583,6 +588,7 @@
 .aside-info-section {
   margin-top: 16px;
   margin-left: 2px;
+  padding: 25px;
 }
 
 .info-title {
@@ -814,8 +820,16 @@
   }
   
   .order-aside {
-    width: 100%;
-    flex: none;
+     width: 100%;
+     flex: none;
+     padding: 0;
+     margin: 0;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     justify-content: flex-start;
+     top: 0;
+     position: relative;
   }
   
   .footer-content {
@@ -868,8 +882,15 @@
   }
   
   .order-aside {
-    width: 100%;
-    padding: 20px;
+     width: 100%;
+     padding: 0;
+     margin: 0;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     justify-content: flex-start;
+     top: 0;
+     position: relative;
   }
   
   .hero-content_order {

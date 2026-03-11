@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './History.css';
+import './News.css';
 
-
-function History() {
-
+function NewsFull() {
     // Dropdown state
     const [dropdownOpen, setDropdownOpen] = useState(null);
     const handleMouseEnter = (menu) => setDropdownOpen(menu);
@@ -19,27 +17,6 @@ function History() {
         { id: 2, src: '/images/pix9.jpg', title: 'MAHI AHI TACOS', price: '$18.50' },
         { id: 3, src: '/images/pix10.jpg', title: 'FRENSH TOAST', price: '$16.75' },
     ]);
-    const [quantities, setQuantities] = useState({});
-    const [couponCode, setCouponCode] = useState("");
-    const [discount, setDiscount] = useState(0);
-    const [estimatedTotal, setEstimatedTotal] = useState(0);
-    const incQty = (id) => setQuantities(q => ({ ...q, [id]: (q[id] || 1) + 1 }));
-    const decQty = (id) => setQuantities(q => ({ ...q, [id]: Math.max(1, (q[id] || 1) - 1) }));
-    const removeItem = (id) => setCartIds(ids => ids.filter(i => i !== id));
-    const applyCoupon = () => setDiscount(5); // Dummy coupon logic
-
-    // Optionally, recalculate estimated total when cart changes
-    React.useEffect(() => {
-        const total = cartIds.reduce((sum, id) => {
-            const item = popularItems.find(i => i.id === id);
-            const qty = quantities[id] || 1;
-            if (!item) return sum;
-            const price = parseFloat(item.price.replace(/[^\d.]/g, ""));
-            return sum + price * qty;
-        }, 0);
-        setEstimatedTotal(Math.max(0, total - discount));
-    }, [cartIds, quantities, discount, popularItems]);
-
     return React.createElement(
       'div',
       { style: { backgroundImage: 'url("/images/history new.jpg")', backgroundPosition: 'center', minHeight: '100vh' } },
@@ -99,16 +76,15 @@ function History() {
       ),
       React.createElement(
         'div',
-        { className: 'history-main-flex' },
+        { className: 'news-main-flex' },
         React.createElement(
           'main',
-          { className: 'history-section' },
-           React.createElement('div', { className: 'history-title1' }, 'History'), 
+          { className: 'news-section-full' },
         )
       ),
           React.createElement(
             'div',
-            { className: 'history-bottom-content' },
+            { className: 'news-bottom-content' },
             React.createElement('p', null, 'This is some example content. WordPress is an extremely user friendly content management system for websites and blogs. Users can easily add and update text, images, video, audio and more using the WordPress platform.'),
             React.createElement('p', null,
               'Curabitur lacinia porta purus. Mauris laoreet dignissim imperdiet. Proin tempor pellentesque neque tempor feugiat. Vivamus odio tortor, pulvinar vitae placerat sed, ultricies nec augue. In fermentum nunc sit amet mauris tincidunt laoreet. Nulla accumsan, elit quis vehicula auctor, enim ligula pharetra ligula, nec facilisis purus ipsum nec sem. Quisque vitae risus elit, quis lobortis augue. Duis dignissim ',
@@ -116,92 +92,24 @@ function History() {
               ' mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero.'
             ),
             React.createElement('p', null, 'Maecenas consectetur, nunc et euismod malesuada, libero nunc vestibulum ante, sed tempor ligula sapien vitae enim. Nullam in elit quam. Maecenas feugiat euismod libero, quis feugiat enim elementum sit amet. Fusce in sem id mi venenatis hendrerit. Phasellus tempus enim vel nulla accumsan volutpat.'),
-            React.createElement('ul', { className: 'history-list' },
+            React.createElement('ul', { className: 'news-list' },
               React.createElement('li', null, 'Example List Item'),
               React.createElement('li', null, 'Example List Item'),
               React.createElement('li', null, 'Example List Item')
             ),
             React.createElement('p', null, 'Cras aliquet viverra neque ac malesuada. Nullam tempor massa ut turpis fermentum vel laoreet diam tempor. Sed cursus nulla vel massa cursus et rhoncus erat pretium. In vehicula magna vitae ante sagittis ac semper risus feugiat. Morbi a massa lacus, quis congue massa. Suspendisse potenti. Fusce tristique, sem eu interdum laoreet, mauris justo malesuada purus, eget vehicula ligula justo eget elit. Duis dignissim mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero.'),
-            React.createElement('h1', { className: 'history-h1' }, 'Heading 1 Example'),
-            React.createElement('h2', { className: 'history-h2' }, 'Heading 2 Example'),
-            React.createElement('h3', { className: 'history-h3' }, 'Heading 3 Example'),
-            React.createElement('h4', { className: 'history-h4' }, 'Heading 4 Example'),
-            React.createElement('h5', { className: 'history-h5' }, 'Heading 5 Example'),
-            React.createElement('h6', { className: 'history-h6' }, 'Heading 6 Example'),
-            React.createElement('p', null, 'Nunc eleifend, erat eu lacinia feugiat, erat tortor convallis justo, vel eleifend massa dui vitae nunc. Duis volutpat orci eu orci ultrices eget ultrices mi mollis. Integer in enim ut velit congue varius eu eget purus. Nulla eget molestie ipsum. Duis mollis cursus quam, non faucibus risus rutrum vitae. Vestibulum commodo convallis ipsum, nec hendrerit elit eleifend eu. Vestibulum non nisl ligula, id aliquet leo.'),
-            React.createElement('blockquote', { className: 'history-blockquote' },
-              'This is an example blockquote. Fusce lobortis, nisi vitae mattis viverra, diam magna ultrices urna, id fermentum lacus massa facilisis lectus.'
+            React.createElement('h1', { className: 'news-h1' }, 'Heading 1 Example'),
+            React.createElement('h2', { className: 'news-h2' }, 'Heading 2 Example'),
+            React.createElement('h3', { className: 'news-h3' }, 'Heading 3 Example'),
+            React.createElement('h4', { className: 'news-h4' }, 'Heading 4 Example'),
+            React.createElement('h5', { className: 'news-h5' }, 'Heading 5 Example'),
+            React.createElement('h6', { className: 'news-h6' }, 'Heading 6 Example'),
+            React.createElement('p', null, 'Nunc eleifend, erat eu lacinia feugiat, erat tortor convallis justo, vel eleifend massa dui vitae nunc. Duis volutpat orci eu orci ultrices eget ultrices mi mollis. Integer in enim ut velit congue varius eu eget purus. Nulla eget molestie ipsum. Duis mollis cursus quam, non faucibus risus rutrum vitae. Vestibulum commodo convallis ipsum, nec hendrerit elit eleifend eu. Vestibulum non nisl ligula, id aliquet leo. Fusce vitae ligula nec lacus tincidunt porta. Vestibulum et elementum erat. Pellentesque rutrum velit et justo cursus a tempor quam lacinia. Duis blandit pulvinar tortor id rhoncus. Quisque malesuada malesuada fringilla. Phasellus et lorem tortor, sed convallis libero. Cras consequat, ipsum quis porttitor consectetur, lacus ipsum pulvinar turpis, ut facilisis orci augue vitae tellus. Etiam a neque quis turpis scelerisque pulvinar.'),
+            React.createElement('blockquote', { className: 'news-blockquote' },
+              'This is an example blockquote. Fusce lobortis, nisi vitae mattis viverra, diam magna ultrices urna, id fermentum lacus massa facilisis lectus. Proin nec metus leo.'
             ),
-            React.createElement('p', null, 'Morbi tortor velit, mattis sed sagittis et, cursus sit amet sem. Morbi eget velit justo. Nunc suscipit eros eget arcu pretium accumsan. Etiam congue tempor quam. Sed sed eros vel neque vulputate mollis interdum vel leo. Maecenas id tristique metus. Morbi euismod dignissim dolor eget viverra. Curabitur sodales faucibus justo quis lobortis. Cras ligula velit, congue ac laoreet eu, porttitor sit amet nulla.')
+            React.createElement('p', null, 'Morbi tortor velit, mattis sed sagittis et, cursus sit amet sem. Morbi eget velit justo. Nunc suscipit eros eget arcu pretium accumsan. Etiam congue tempor quam. Sed sed eros vel neque vulputate mollis interdum vel leo. Maecenas id tristique metus. Morbi euismod dignissim dolor eget viverra. Curabitur sodales faucibus justo quis lobortis. Cras ligula velit, congue ac laoreet eu, porttitor sit amet nulla. Nunc scelerisque nulla vitae urna euismod elementum. Cras congue commodo libero ac condimentum. Nullam vel elit nunc, eu tempus lectus. Proin sodales molestie leo, et sodales tortor malesuada ac. Cras aliquet viverra neque ac malesuada. Nullam tempor massa ut turpis fermentum vel laoreet diam tempor. Sed cursus nulla vel massa cursus et rhoncus erat pretium. In vehicula magna vitae ante sagittis ac semper risus feugiat. Morbi a massa lacus, quis congue massa. Suspendisse potenti. Fusce tristique, sem eu interdum laoreet, mauris justo malesuada purus, eget vehicula ligula justo eget elit.')
         ),
-        React.createElement(
-          'aside',
-          { className: 'order-aside', style: { backgroundColor: 'rgba(255, 255, 255, 0.9)', borderRadius: '8px', padding: '16px' } },
-          React.createElement('div', { className: 'search-container' },
-            React.createElement('input', { type: 'text', value: query, onChange: (e) => setQuery(e.target.value), placeholder: 'Search products...', className: 'order-search-input' }),
-            React.createElement('button', { onClick: () => setKeyword(query), className: 'order-search-button' }, 'Go')
-          ),
-          React.createElement(
-            'div',
-            { className: 'cart-container' },
-            cartIds.length === 0
-              ? React.createElement('div', null,
-                React.createElement('p', { className: 'cart-empty' }, 'Your cart is currently empty!'),
-                React.createElement('a', { href: '#store-browse', className: 'browse-store-link' }, 'Browse store.')
-              )
-              : React.createElement(React.Fragment, null,
-                React.createElement('h3', { className: 'cart-title' }, 'Products in cart'),
-                React.createElement('ul', { className: 'cart-items-list' },
-                  popularItems
-                    .filter(i => cartIds.includes(i.id))
-                    .map(i => React.createElement('li', { key: i.id, className: 'cart-item' },
-                      React.createElement(Link, { to: '/menu' },
-                        React.createElement('img', { src: i.src, alt: i.title, className: 'cart-item-image' })
-                      ),
-                      React.createElement('div', { className: 'cart-item-details' },
-                        React.createElement('div', { className: 'cart-item-title' }, i.title),
-                        React.createElement('div', { className: 'cart-item-price' }, i.price)
-                      ),
-                      React.createElement('div', { className: 'quantity-controls' },
-                        React.createElement('button', { onClick: () => decQty(i.id), className: 'qty-button' }, '−'),
-                        React.createElement('span', null, quantities[i.id] || 1),
-                        React.createElement('button', { onClick: () => incQty(i.id), className: 'qty-button' }, '＋'),
-                        React.createElement('button', { onClick: () => removeItem(i.id), className: 'remove-item-button' }, 'Remove item')
-                      )
-                    ))
-                ),
-                React.createElement('div', { className: 'coupon-section' },
-                  React.createElement('div', { className: 'coupon-label' }, 'Add coupons'),
-                  React.createElement('div', { className: 'coupon-input-container' },
-                    React.createElement('input', { type: 'text', value: couponCode, onChange: (e) => setCouponCode(e.target.value), placeholder: 'Enter code', className: 'coupon-input' }),
-                    React.createElement('button', { onClick: applyCoupon, className: 'apply-coupon-button' }, 'Apply')
-                  ),
-                  discount > 0 && React.createElement('div', { className: 'coupon-applied' }, `Coupon applied: -${discount.toFixed(2)}`)
-                ),
-                React.createElement('div', { className: 'estimated-total' },
-                  React.createElement('strong', null, 'Estimated total'),
-                  React.createElement('strong', null, `${estimatedTotal.toFixed(2)}`)
-                ),
-                React.createElement(Link, { to: '/cart', state: { items: popularItems.filter(i => cartIds.includes(i.id)) }, className: 'checkout-button' }, 'Proceed to Checkout')
-              )
-          ),
-          React.createElement('div', { className: 'aside-info-section' },
-            React.createElement('h4', { className: 'info-title' }, 'INFORMATION'),
-            React.createElement('p', { className: 'phone-paragraph' }, React.createElement('strong', null, 'Phone:'), ' ', React.createElement('a', { href: 'tel:9411234567' }, '941-123-4567')),
-            React.createElement('hr', { className: 'info-divider' }),
-            React.createElement('h4', { className: 'hours-title' }, 'Hours'),
-            React.createElement('ul', { className: 'hours-list' },
-              React.createElement('li', null, React.createElement('strong', null, 'Monday'), ' — 9:00 am – 11:00 pm'),
-              React.createElement('li', null, React.createElement('strong', null, 'Tuesday'), ' — 9:00 am – 11:00 pm'),
-              React.createElement('li', null, React.createElement('strong', null, 'Wednesday'), ' — 9:00 am – 11:00 pm'),
-              React.createElement('li', null, React.createElement('strong', null, 'Thursday'), ' — 9:00 am – 11:00 pm'),
-              React.createElement('li', null, React.createElement('strong', null, 'Friday'), ' — 9:00 am – 11:00 pm'),
-              React.createElement('li', null, React.createElement('strong', null, 'Saturday'), ' — 11:00 am – 1:00 am'),
-              React.createElement('li', null, React.createElement('strong', null, 'Sunday'), ' — 11:00 am – 1:00 am')
-            ),
-        )
-        
-      ),
         React.createElement('footer', { className: 'footer' },
               React.createElement('div', { className: 'footer-content' },
                 React.createElement('div', { className: 'footer-section' },
@@ -252,4 +160,4 @@ function History() {
           )
 }
 
-export default History
+export default NewsFull;

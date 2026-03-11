@@ -531,6 +531,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  /* justify-content: center;
+  justify-items: center; */
+  justify-self: center;
 }
 .img_card {
   width: 32%;
@@ -762,7 +765,7 @@ body {
   font-family: 'Arial, Helvetica, sans-serif';
   font-size: large;
   padding: 2rem 0;
-  margin-top: 0; /* Set margin-top to 0 */
+  margin-top: 20px; /* Set margin-top to 0 */
   position: relative;
   bottom: 0;
   width: 100%;
@@ -866,6 +869,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 80px;
 }
 
 .footer-btn {
@@ -878,6 +882,7 @@ body {
   font-weight: bold;
   text-decoration: none;
   text-align: center;
+  /* margin-top: 40px; */
 }
 
 .footer-btn:hover {

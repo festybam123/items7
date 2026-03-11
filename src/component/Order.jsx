@@ -246,7 +246,8 @@ function Order() {
         )
       ),
       
-      React.createElement('aside', { className: 'order-aside' },
+      React.createElement('aside', { className: 'order_aside'
+      },
         React.createElement('div', { className: 'search-container' },
           React.createElement('input', { type: 'text', value: query, onChange: (e) => setQuery(e.target.value), placeholder: 'Search products...', className: 'order-search-input' }),
           React.createElement('button', { onClick: () => setKeyword(query), className: 'order-search-button' }, 'Go')

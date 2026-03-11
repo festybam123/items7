@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './History.css';
+import './News.css';
 
 
-function History() {
+function News() {
 
     // Dropdown state
     const [dropdownOpen, setDropdownOpen] = useState(null);
     const handleMouseEnter = (menu) => setDropdownOpen(menu);
     const handleMouseLeave = () => setDropdownOpen(null);
+
+    // Show more/less state
+    const [showMore, setShowMore] = useState(false);
 
     // Dummy cart/search state and handlers to prevent errors
     const [query, setQuery] = useState("");
@@ -99,16 +102,20 @@ function History() {
       ),
       React.createElement(
         'div',
-        { className: 'history-main-flex' },
+        { className: 'news-main-flex' },
         React.createElement(
           'main',
-          { className: 'history-section' },
-           React.createElement('div', { className: 'history-title1' }, 'History'), 
+          { className: 'news-section' },
+          React.createElement(
+            'a',
+            { href: '/menu', className: 'news-image-link' },
+            React.createElement('img', { src: '/images/NewsIMG1.jpg', alt: 'News', className: 'news-main-image' })
+          )
         )
       ),
           React.createElement(
             'div',
-            { className: 'history-bottom-content' },
+            { className: 'news-bottom-content' },
             React.createElement('p', null, 'This is some example content. WordPress is an extremely user friendly content management system for websites and blogs. Users can easily add and update text, images, video, audio and more using the WordPress platform.'),
             React.createElement('p', null,
               'Curabitur lacinia porta purus. Mauris laoreet dignissim imperdiet. Proin tempor pellentesque neque tempor feugiat. Vivamus odio tortor, pulvinar vitae placerat sed, ultricies nec augue. In fermentum nunc sit amet mauris tincidunt laoreet. Nulla accumsan, elit quis vehicula auctor, enim ligula pharetra ligula, nec facilisis purus ipsum nec sem. Quisque vitae risus elit, quis lobortis augue. Duis dignissim ',
@@ -116,23 +123,20 @@ function History() {
               ' mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero.'
             ),
             React.createElement('p', null, 'Maecenas consectetur, nunc et euismod malesuada, libero nunc vestibulum ante, sed tempor ligula sapien vitae enim. Nullam in elit quam. Maecenas feugiat euismod libero, quis feugiat enim elementum sit amet. Fusce in sem id mi venenatis hendrerit. Phasellus tempus enim vel nulla accumsan volutpat.'),
-            React.createElement('ul', { className: 'history-list' },
+            React.createElement('ul', { className: 'news-list' },
               React.createElement('li', null, 'Example List Item'),
               React.createElement('li', null, 'Example List Item'),
               React.createElement('li', null, 'Example List Item')
             ),
             React.createElement('p', null, 'Cras aliquet viverra neque ac malesuada. Nullam tempor massa ut turpis fermentum vel laoreet diam tempor. Sed cursus nulla vel massa cursus et rhoncus erat pretium. In vehicula magna vitae ante sagittis ac semper risus feugiat. Morbi a massa lacus, quis congue massa. Suspendisse potenti. Fusce tristique, sem eu interdum laoreet, mauris justo malesuada purus, eget vehicula ligula justo eget elit. Duis dignissim mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero.'),
-            React.createElement('h1', { className: 'history-h1' }, 'Heading 1 Example'),
-            React.createElement('h2', { className: 'history-h2' }, 'Heading 2 Example'),
-            React.createElement('h3', { className: 'history-h3' }, 'Heading 3 Example'),
-            React.createElement('h4', { className: 'history-h4' }, 'Heading 4 Example'),
-            React.createElement('h5', { className: 'history-h5' }, 'Heading 5 Example'),
-            React.createElement('h6', { className: 'history-h6' }, 'Heading 6 Example'),
-            React.createElement('p', null, 'Nunc eleifend, erat eu lacinia feugiat, erat tortor convallis justo, vel eleifend massa dui vitae nunc. Duis volutpat orci eu orci ultrices eget ultrices mi mollis. Integer in enim ut velit congue varius eu eget purus. Nulla eget molestie ipsum. Duis mollis cursus quam, non faucibus risus rutrum vitae. Vestibulum commodo convallis ipsum, nec hendrerit elit eleifend eu. Vestibulum non nisl ligula, id aliquet leo.'),
-            React.createElement('blockquote', { className: 'history-blockquote' },
-              'This is an example blockquote. Fusce lobortis, nisi vitae mattis viverra, diam magna ultrices urna, id fermentum lacus massa facilisis lectus.'
+            React.createElement(
+              'a',
+              { 
+                href: '/news/full', 
+                className: 'news-more-link'
+              },
+              'more...'
             ),
-            React.createElement('p', null, 'Morbi tortor velit, mattis sed sagittis et, cursus sit amet sem. Morbi eget velit justo. Nunc suscipit eros eget arcu pretium accumsan. Etiam congue tempor quam. Sed sed eros vel neque vulputate mollis interdum vel leo. Maecenas id tristique metus. Morbi euismod dignissim dolor eget viverra. Curabitur sodales faucibus justo quis lobortis. Cras ligula velit, congue ac laoreet eu, porttitor sit amet nulla.')
         ),
         React.createElement(
           'aside',
@@ -199,6 +203,10 @@ function History() {
               React.createElement('li', null, React.createElement('strong', null, 'Saturday'), ' — 11:00 am – 1:00 am'),
               React.createElement('li', null, React.createElement('strong', null, 'Sunday'), ' — 11:00 am – 1:00 am')
             ),
+            React.createElement('div', { className: 'aside-buttons' },
+              React.createElement(Link, { to: '/reservations', className: 'aside-btn' }, 'RESERVATIONS'),
+              React.createElement(Link, { to: '/order', className: 'aside-btn' }, 'ORDER ONLINE')
+            ),
         )
         
       ),
@@ -252,4 +260,4 @@ function History() {
           )
 }
 
-export default History
+export default News
