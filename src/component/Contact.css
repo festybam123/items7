@@ -1,0 +1,328 @@
+/* Contact Component Styles */
+
+/* Main flex container */
+.contact-main-flex-full {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* Contact section */
+/* .contact-section-full {
+  position: relative;
+  min-height: 30vh;
+  align-items: center;
+  background-image: url('/images/NewsIMG1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Contact title */
+.contact-title-full {
+  font-size: 4rem;
+  color: white;
+  font-family: "Brush Script MT", cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Contact content */
+.contact-content-full {
+  background: #fff;
+  font-size: 1.1rem;
+  color: #222;
+  width: 100%;
+  max-width: 100%;
+  padding: 60px 80px;
+  box-sizing: border-box;
+  min-height: calc(100vh - 200px);
+  margin-top: 25px;
+}
+
+.contact-header-full {
+  font-size: 6rem;
+  color: rgba(0, 0, 0, 0.582);
+  font-family: "Brush Script MT", cursive;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.contact-intro-full {
+  font-size: 1.3rem;
+  color: #333333cc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 700px;
+  margin-left: 20%;
+}
+
+.contact-intro-full a {
+  color: #8EB04A;
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+/* Contact form */
+.contact-form-full {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-form-group-full {
+  margin-bottom: 25px;
+}
+
+.contact-label-full {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333333d0;
+  margin-bottom: 8px;
+}
+
+.contact-required-full {
+  color: #808080;
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.contact-input-full,
+.contact-textarea-full {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  border: 2px solid #8EB04A;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fafafa;
+}
+
+.contact-input-full:focus,
+.contact-textarea-full:focus {
+  outline: none;
+  border-color: #8EB04A;
+  box-shadow: 0 0 5px rgba(142, 176, 74, 0.3);
+  background-color: #fff;
+}
+
+.contact-textarea-full {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.contact-submit-btn-full {
+  padding: 14px 35px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #8EB04A;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-submit-btn-full:hover {
+  background-color: #6a8f3d;
+  transform: translateY(-2px);
+}
+
+.contact-submit-btn-full:active {
+  transform: translateY(0);
+}
+
+.contact-success-full {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  color: #155724;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Navbar styles */
+.contact-navbar-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+}
+
+.contact-nav-link1-full {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+}
+
+.contact-nav-link-full {
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-nav-link-full:hover {
+  color: #8EB04A;
+}
+
+.contact-nav-link2-full {
+  font-size: 0.9rem;
+  background-color: #8EB04A;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-nav-link2-full:hover {
+  background-color: #6a8f3d;
+}
+
+.contact-nav-item-full {
+  position: relative;
+}
+
+.contact-dropdown-icon-full {
+  font-size: 0.7rem;
+  margin-left: 4px;
+}
+
+.contact-dropdown-full {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  min-width: 150px;
+  z-index: 1000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.contact-dropdown-link-full {
+  display: block;
+  padding: 10px 16px;
+  color: #555;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-dropdown-link-full:hover {
+  background-color: #8EB04A;
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 1100px) {
+  .contact-content-full {
+    padding: 40px 50px;
+  }
+  
+  .contact-footer-content-full {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-footer-section-full {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .contact-footer-divider-full {
+    margin: 0 auto 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-navbar-full {
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .contact-nav-link1-full {
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
+  
+  .contact-nav-link-full {
+    font-size: 0.8rem;
+    margin: 0 0.3rem;
+  }
+  
+  .contact-nav-link2-full {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .contact-section-full {
+    min-height: 20vh;
+  }
+  
+  .contact-title-full {
+    font-size: 2.5rem;
+  }
+  
+  .contact-content-full {
+    padding: 30px 20px;
+  }
+  
+  .contact-intro-full {
+    font-size: 1rem;
+  }
+  
+  .contact-form-full {
+    padding: 0 10px;
+  }
+  
+  .contact-footer-buttons-full {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title-full {
+    font-size: 2rem;
+  }
+  
+  .contact-label-full {
+    font-size: 0.9rem;
+  }
+  
+  .contact-input-full,
+  .contact-textarea-full {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+  
+  .contact-submit-btn-full {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}

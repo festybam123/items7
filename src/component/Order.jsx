@@ -148,9 +148,9 @@ function Order() {
           React.createElement(
             'div',
             { className: 'dropdown' },
-            React.createElement(Link, { to: '/about/history', className: 'dropdown-link' }, 'History'),
-            React.createElement(Link, { to: '/about/news', className: 'dropdown-link' }, 'News'),
-            React.createElement(Link, { to: '/templates/Sidebar Page', className: 'dropdown-link' }, 'Sidebar Page')
+            React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
+            React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
+            React.createElement(Link, { to: '/templates', className: 'dropdown-link' }, 'Sidebar Page')
           )
       ),
           React.createElement(

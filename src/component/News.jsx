@@ -108,7 +108,7 @@ function News() {
           { className: 'news-section' },
           React.createElement(
             'a',
-            { href: '/menu', className: 'news-image-link' },
+            { href: '/news/full', className: 'news-image-link' },
             React.createElement('img', { src: '/images/NewsIMG1.jpg', alt: 'News', className: 'news-main-image' })
           )
         )

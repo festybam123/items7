@@ -9,6 +9,7 @@ import Order from './component/Order.jsx'
 import History from './component/History.jsx'
 import News from './component/News.jsx'
 import NewsFull from './component/NewsFull.jsx'
+import Contact from './component/Contact.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/history' element={<History />} />
         <Route path='/news' element={<News />} />
         <Route path='/news/full' element={<NewsFull />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
     </BrowserRouter>
   )

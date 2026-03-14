@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './News.css';
+import './NewsFull.css';
 
 function NewsFull() {
     // Dropdown state
@@ -22,7 +22,7 @@ function NewsFull() {
       { style: { backgroundImage: 'url("/images/history new.jpg")', backgroundPosition: 'center', minHeight: '100vh' } },
       React.createElement(
         'header',
-        { className: 'navbar' },
+        { className: 'navbar-full' },
         React.createElement(Link, { to: '/', className: 'nav-link1' }, 'RESTAURANT'),
         React.createElement(Link, { to: '/locations', className: 'nav-link' }, 'LOCATIONS'),
         React.createElement(Link, { to: '/menu', className: 'nav-link' }, 'MENU'),
@@ -42,7 +42,7 @@ function NewsFull() {
           dropdownOpen === 'about' &&
           React.createElement(
             'div',
-            { className: 'dropdown' },
+            { className: 'dropdown-full' },
             React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
             React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
             React.createElement(Link, { to: '/contact', className: 'dropdown-link' }, 'Contact')
@@ -59,12 +59,12 @@ function NewsFull() {
             Link,
             { to: '/templates', className: 'nav-link' },
             'TEMPLATES',
-            React.createElement('span', { className: 'dropdown-icon' }, '▼')
+            React.createElement('span', { className: 'dropdown-icon-full' }, '▼')
           ),
           dropdownOpen === 'templates' &&
           React.createElement(
             'div',
-            { className: 'dropdown' },
+            { className: 'dropdown-full' },
             React.createElement(Link, { to: '/templates/blog', className: 'dropdown-link' }, 'Blog'),
             React.createElement(Link, { to: '/templates/category', className: 'dropdown-link' }, 'Category'),
             React.createElement(Link, { to: '/templates/product', className: 'dropdown-link' }, 'Product'),
@@ -76,15 +76,16 @@ function NewsFull() {
       ),
       React.createElement(
         'div',
-        { className: 'news-main-flex' },
+        { className: 'news-main-flex-full' },
         React.createElement(
           'main',
           { className: 'news-section-full' },
+          React.createElement('span', { className: 'news-image-text-full' }, 'Closed For Remodel')
         )
       ),
           React.createElement(
             'div',
-            { className: 'news-bottom-content' },
+            { className: 'news-bottom-content-full' },
             React.createElement('p', null, 'This is some example content. WordPress is an extremely user friendly content management system for websites and blogs. Users can easily add and update text, images, video, audio and more using the WordPress platform.'),
             React.createElement('p', null,
               'Curabitur lacinia porta purus. Mauris laoreet dignissim imperdiet. Proin tempor pellentesque neque tempor feugiat. Vivamus odio tortor, pulvinar vitae placerat sed, ultricies nec augue. In fermentum nunc sit amet mauris tincidunt laoreet. Nulla accumsan, elit quis vehicula auctor, enim ligula pharetra ligula, nec facilisis purus ipsum nec sem. Quisque vitae risus elit, quis lobortis augue. Duis dignissim ',
@@ -92,20 +93,21 @@ function NewsFull() {
               ' mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero.'
             ),
             React.createElement('p', null, 'Maecenas consectetur, nunc et euismod malesuada, libero nunc vestibulum ante, sed tempor ligula sapien vitae enim. Nullam in elit quam. Maecenas feugiat euismod libero, quis feugiat enim elementum sit amet. Fusce in sem id mi venenatis hendrerit. Phasellus tempus enim vel nulla accumsan volutpat.'),
-            React.createElement('ul', { className: 'news-list' },
+            React.createElement('ul', { className: 'news-list-full' },
               React.createElement('li', null, 'Example List Item'),
               React.createElement('li', null, 'Example List Item'),
               React.createElement('li', null, 'Example List Item')
             ),
             React.createElement('p', null, 'Cras aliquet viverra neque ac malesuada. Nullam tempor massa ut turpis fermentum vel laoreet diam tempor. Sed cursus nulla vel massa cursus et rhoncus erat pretium. In vehicula magna vitae ante sagittis ac semper risus feugiat. Morbi a massa lacus, quis congue massa. Suspendisse potenti. Fusce tristique, sem eu interdum laoreet, mauris justo malesuada purus, eget vehicula ligula justo eget elit. Duis dignissim mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero.'),
-            React.createElement('h1', { className: 'news-h1' }, 'Heading 1 Example'),
-            React.createElement('h2', { className: 'news-h2' }, 'Heading 2 Example'),
-            React.createElement('h3', { className: 'news-h3' }, 'Heading 3 Example'),
-            React.createElement('h4', { className: 'news-h4' }, 'Heading 4 Example'),
-            React.createElement('h5', { className: 'news-h5' }, 'Heading 5 Example'),
-            React.createElement('h6', { className: 'news-h6' }, 'Heading 6 Example'),
+            React.createElement('h1', { className: 'news-h1-full' }, 'Heading 1 Example'),
+            React.createElement('h2', { className: 'news-h2-full' }, 'Heading 2 Example'),
+            React.createElement('h3', { className: 'news-h3-full' }, 'Heading 3 Example'),
+            React.createElement('h4', { className: 'news-h4-full' }, 'Heading 4 Example'),
+            React.createElement('h5', { className: 'news-h5-full' }, 'Heading 5 Example'),
+            React.createElement('h6', { className: 'news-h6-full' }, 'HEADING 6 EXAMPLE'),
+            React.createElement('hr', { className: 'news-hr-full' }),
             React.createElement('p', null, 'Nunc eleifend, erat eu lacinia feugiat, erat tortor convallis justo, vel eleifend massa dui vitae nunc. Duis volutpat orci eu orci ultrices eget ultrices mi mollis. Integer in enim ut velit congue varius eu eget purus. Nulla eget molestie ipsum. Duis mollis cursus quam, non faucibus risus rutrum vitae. Vestibulum commodo convallis ipsum, nec hendrerit elit eleifend eu. Vestibulum non nisl ligula, id aliquet leo. Fusce vitae ligula nec lacus tincidunt porta. Vestibulum et elementum erat. Pellentesque rutrum velit et justo cursus a tempor quam lacinia. Duis blandit pulvinar tortor id rhoncus. Quisque malesuada malesuada fringilla. Phasellus et lorem tortor, sed convallis libero. Cras consequat, ipsum quis porttitor consectetur, lacus ipsum pulvinar turpis, ut facilisis orci augue vitae tellus. Etiam a neque quis turpis scelerisque pulvinar.'),
-            React.createElement('blockquote', { className: 'news-blockquote' },
+            React.createElement('blockquote', { className: 'news-blockquote-full' },
               'This is an example blockquote. Fusce lobortis, nisi vitae mattis viverra, diam magna ultrices urna, id fermentum lacus massa facilisis lectus. Proin nec metus leo.'
             ),
             React.createElement('p', null, 'Morbi tortor velit, mattis sed sagittis et, cursus sit amet sem. Morbi eget velit justo. Nunc suscipit eros eget arcu pretium accumsan. Etiam congue tempor quam. Sed sed eros vel neque vulputate mollis interdum vel leo. Maecenas id tristique metus. Morbi euismod dignissim dolor eget viverra. Curabitur sodales faucibus justo quis lobortis. Cras ligula velit, congue ac laoreet eu, porttitor sit amet nulla. Nunc scelerisque nulla vitae urna euismod elementum. Cras congue commodo libero ac condimentum. Nullam vel elit nunc, eu tempus lectus. Proin sodales molestie leo, et sodales tortor malesuada ac. Cras aliquet viverra neque ac malesuada. Nullam tempor massa ut turpis fermentum vel laoreet diam tempor. Sed cursus nulla vel massa cursus et rhoncus erat pretium. In vehicula magna vitae ante sagittis ac semper risus feugiat. Morbi a massa lacus, quis congue massa. Suspendisse potenti. Fusce tristique, sem eu interdum laoreet, mauris justo malesuada purus, eget vehicula ligula justo eget elit.')
@@ -149,7 +151,6 @@ function NewsFull() {
                   React.createElement('div', { className: 'footer-buttons' },
                     React.createElement(Link, { to: '/reservations', className: 'footer-btn' }, 'RESERVATIONS'),
                     React.createElement(Link, { to: '/order-online', className: 'footer-btn' }, 'ORDER ONLINE')
-      
                   )
                 )
               ),
