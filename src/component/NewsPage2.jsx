@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './News.css';
+import { Link } from 'react-router-dom';
+import './NewsPage2.css';
 
 
-function News() {
-    const navigate = useNavigate();
-    
+function Newspage2() {
+
     // Dropdown state
     const [dropdownOpen, setDropdownOpen] = useState(null);
     const handleMouseEnter = (menu) => setDropdownOpen(menu);
     const handleMouseLeave = () => setDropdownOpen(null);
-
-    // Show more/less state
-    const [showMore, setShowMore] = useState(false);
 
     // Dummy cart/search state and handlers to prevent errors
     const [query, setQuery] = useState("");
@@ -103,138 +99,54 @@ function News() {
       ),
       React.createElement(
         'div',
-        { className: 'news-main-flex' },
+        { className: 'history-main-flex' },
         React.createElement(
           'main',
-          { className: 'news-section' },
-          React.createElement(
-            'a',
-            { href: '/news/full', className: 'news-image-link' },
-            React.createElement('img', { src: '/images/NewsIMG1.jpg', alt: 'News', className: 'news-main-image' })
-          )
+          { className: 'history-section' },
         )
       ),
           React.createElement(
             'div',
-            { className: 'news-bottom-content' },
+            { className: 'newspage-content' },
+            // Author info
             React.createElement('img', { src: '/public/images/image radius.jpeg', alt: 'David Morgan', className: 'news-author-image' }),
             React.createElement(
               'div',
               { className: 'news-author-info' },
               React.createElement('h3', { className: 'news-author' }, 'David Morgan'),
-              React.createElement('span', { className: 'news-date' }, 'posted on April 15, 2026')
+              React.createElement('span', { className: 'news-date' }, 'posted on April 14, 2017')
             ),
-             React.createElement('hr', { className: 'news-divider' }),
-            React.createElement('a', { href: '/news/full', className: 'news-h1' }, 'Closed For Remodel'),
+            React.createElement('hr', { className: 'news-divider' }),
+            React.createElement('a', { href: '/news/full', className: 'news-h2' }, 'Creating An Organic Workspace For Our Employees'),
             React.createElement('p', null, 'This is some example content. WordPress is an extremely user friendly content management system for websites and blogs. Users can easily add and update text, images, video, audio and more using the WordPress platform.'),
             React.createElement('p', null,
               'Curabitur lacinia porta purus. Mauris laoreet dignissim imperdiet. Proin tempor pellentesque neque tempor feugiat. Vivamus odio tortor, pulvinar vitae placerat sed, ultricies nec augue. In fermentum nunc sit amet mauris tincidunt laoreet. Nulla accumsan, elit quis vehicula auctor, enim ligula pharetra ligula, nec facilisis purus ipsum nec sem. Quisque vitae risus elit, quis lobortis augue. Duis dignissim ',
               React.createElement('a', { href: 'https://example.com', target: '_blank', rel: 'noopener noreferrer', style: { color: '#8EB04A', textDecoration: 'underline' } }, 'example link'),
-              ' mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero Maecenas consectetur, nunc et euismod malesuada, libero nunc vestibulum ante, sed tempor ligula sapien vitae enim. Nullam in elit quam. Maecenas feugiat euismod libero, quis feugiat enim elementum sit amet. Fusce in sem id mi venenatis hendrerit. Phasellus tempus enim vel nulla accumsan volutpat.'
+              ' mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero.'
             ),
-            React.createElement(
-              'a',
-              { 
-                href: '/news/full', 
-                className: 'news-more-link'
-              },
-              'more...'
-            ),
-        ),
+            React.createElement('p', null, 'Maecenas consectetur, nunc et euismod malesuada, libero nunc vestibulum ante, sed tempor ligula sapien vitae enim. Nullam in elit quam. Maecenas feugiat euismod libero, quis feugiat enim elementum sit amet. Fusce in sem id mi venenatis hendrerit. Phasellus tempus enim vel nulla accumsan volutpat.'),
          
-          React.createElement(
-            'div',
-            { className: 'news-bottom-content2' },
-            React.createElement('img', { src: '/public/images/image radius.jpeg', alt: 'David Morgan', className: 'news-author-image' }),
-             React.createElement(
-              'div',
-              { className: 'news-author-info' },
-              React.createElement('h3', { className: 'news-author' }, 'David Morgan'),
-              React.createElement('span', { className: 'news-date' }, 'posted on April 15, 2026')
+            React.createElement('p', null, 'Cras aliquet viverra neque ac malesuada. Nullam tempor massa ut turpis fermentum vel laoreet diam tempor. Sed cursus nulla vel massa cursus et rhoncus erat pretium. In vehicula magna vitae ante sagittis ac semper risus feugiat. Morbi a massa lacus, quis congue massa. Suspendisse potenti. Fusce tristique, sem eu interdum laoreet, mauris justo malesuada purus, eget vehicula ligula justo eget elit. Duis dignissim mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero.'),
+            React.createElement('h1', { className: 'history-h1' }, 'Heading 1 Example'),
+            React.createElement('h2', { className: 'history-h2' }, 'Heading 2 Example'),
+            React.createElement('h3', { className: 'history-h3' }, 'Heading 3 Example'),
+            React.createElement('h4', { className: 'history-h4' }, 'Heading 4 Example'),
+            React.createElement('h5', { className: 'history-h5' }, 'Heading 5 Example'),
+            React.createElement('h6', { className: 'history-h6' }, 'Heading 6 Example'),
+            React.createElement('p', null, 'Nunc eleifend, erat eu lacinia feugiat, erat tortor convallis justo, vel eleifend massa dui vitae nunc. Duis volutpat orci eu orci ultrices eget ultrices mi mollis. Integer in enim ut velit congue varius eu eget purus. Nulla eget molestie ipsum. Duis mollis cursus quam, non faucibus risus rutrum vitae. Vestibulum commodo convallis ipsum, nec hendrerit elit eleifend eu. Vestibulum non nisl ligula, id aliquet leo.'),
+            React.createElement('blockquote', { className: 'history-blockquote' },
+              'This is an example blockquote. Fusce lobortis, nisi vitae mattis viverra, diam magna ultrices urna, id fermentum lacus massa facilisis lectus.'
             ),
-             React.createElement('hr', { className: 'news-divider' }),
-            React.createElement('a', { href: '/news/full', className: 'news-h1' }, 'We’ve Opened A New Location'),
-              React.createElement('p', null, 'We have opened a new location in Lakewood Ranch! We’re hosting our grand opening event this week, and you can get any meal for 20% off.'),
-
-             React.createElement(
-        'div',
-        { className: 'news-main-flex' },
-        React.createElement(
-          'main',
-          { className: 'news-section2' },
-          React.createElement(
-            'a',
-            { className: 'news-image-link2' },
-            React.createElement('img', { src: '/images/NewsIMG2.jpg', alt: 'News', className: 'news-main-image2' })
-          )
-        )
-      ),
-            React.createElement('h5', { className: 'news-divider' }, 'Our new location is hip, and centrally located.'),
-            React.createElement('p', null, 'This is some example content. WordPress is an extremely user friendly content management system for websites and blogs. Users can easily add and update text, images, video, audio and more using the WordPress platform.'),
-            React.createElement('p', null,
-              'Curabitur lacinia porta purus. Mauris laoreet dignissim imperdiet. Proin tempor pellentesque neque tempor feugiat. Vivamus odio tortor, pulvinar vitae placerat sed, ultricies nec augue. In fermentum nunc sit amet mauris tincidunt laoreet. Nulla accumsan, elit quis vehicula auctor, enim ligula pharetra ligula, nec facilisis purus ipsum nec sem. Quisque vitae risus elit, quis lobortis augue. Duis dignissim ',
-              React.createElement('a', { href: 'https://example.com', target: '_blank', rel: 'noopener noreferrer', style: { color: '#8EB04A', textDecoration: 'underline' } }, 'example link'),
-              ' mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero Maecenas consectetur, nunc et euismod malesuada, libero nunc vestibulum ante, sed tempor ligula sapien vitae enim. Nullam in elit quam. Maecenas feugiat euismod libero, quis feugiat enim elementum sit amet. Fusce in sem id mi venenatis hendrerit. Phasellus tempus enim vel nulla accumsan volutpat.'
-            ),
-
-            React.createElement(
-              'a',
-              { 
-                href: '/newlocation', 
-                className: 'news-more-link'
-              },
-              'more...'
-            ),
+            React.createElement('p', null, 'Morbi tortor velit, mattis sed sagittis et, cursus sit amet sem. Morbi eget velit justo. Nunc suscipit eros eget arcu pretium accumsan. Etiam congue tempor quam. Sed sed eros vel neque vulputate mollis interdum vel leo. Maecenas id tristique metus. Morbi euismod dignissim dolor eget viverra. Curabitur sodales faucibus justo quis lobortis. Cras ligula velit, congue ac laoreet eu, porttitor sit amet nulla.')
         ),
-          React.createElement(
-        'div',
-        { className: 'news-main-flex' },
-        React.createElement(
-          'main',
-          { className: 'news-section' },
-          React.createElement(
-            'a',
-            { href: '/news/full', className: 'news-image-link3' },
-            React.createElement('img', { src: '/images/NewsIMG3.jpg', alt: 'News', className: 'news-main-image' })
-          )
-        )
-      ),
-          React.createElement(
-            'div',
-            { className: 'news-bottom-content' },
-            React.createElement('img', { src: '/public/images/image radius.jpeg', alt: 'David Morgan', className: 'news-author-image' }),
-            React.createElement(
-              'div',
-              { className: 'news-author-info' },
-              React.createElement('h3', { className: 'news-author' }, 'David Morgan'),
-              React.createElement('span', { className: 'news-date' }, 'posted on April 15, 2026')
-            ),
-             React.createElement('hr', { className: 'news-divider' }),
-            React.createElement('a', { href: '/news/full', className: 'news-h1' }, 'The Best Coffee Shops To Work From In Lahaina'),
-            React.createElement('p', null, 'This is some example content. WordPress is an extremely user friendly content management system for websites and blogs. Users can easily add and update text, images, video, audio and more using the WordPress platform.'),
-            React.createElement('p', null,
-              'Curabitur lacinia porta purus. Mauris laoreet dignissim imperdiet. Proin tempor pellentesque neque tempor feugiat. Vivamus odio tortor, pulvinar vitae placerat sed, ultricies nec augue. In fermentum nunc sit amet mauris tincidunt laoreet. Nulla accumsan, elit quis vehicula auctor, enim ligula pharetra ligula, nec facilisis purus ipsum nec sem. Quisque vitae risus elit, quis lobortis augue. Duis dignissim ',
-              React.createElement('a', { href: 'https://example.com', target: '_blank', rel: 'noopener noreferrer', style: { color: '#8EB04A', textDecoration: 'underline' } }, 'example link'),
-              ' mauris eu arcu consectetur in scelerisque risus iaculis. Maecenas ac sagittis libero. Maecenas consectetur, nunc et euismod malesuada, libero nunc vestibulum ante, sed tempor ligula sapien vitae enim. Nullam in elit quam. Maecenas feugiat euismod libero, quis feugiat enim elementum sit amet. Fusce in sem id mi venenatis hendrerit. Phasellus tempus enim vel nulla accumsan volutpat.'
-            ),
-
-            React.createElement(
-              'a',
-              { 
-                href: '/news/full', 
-                className: 'news-more-link'
-              },
-              'more...'
-            ),
-        ),
-        // Pagination
+        // Previous Page link
         React.createElement(
           'div',
           { className: 'news-pagination' },
           React.createElement(
             Link,
-            { to: '/newspage2', className: 'pagination-link' },
-            'Next Page →'
+            { to: '/news', className: 'pagination-link' },
+            '← Previous Page'
           )
         ),
         React.createElement(
@@ -302,10 +214,6 @@ function News() {
               React.createElement('li', null, React.createElement('strong', null, 'Saturday'), ' — 11:00 am – 1:00 am'),
               React.createElement('li', null, React.createElement('strong', null, 'Sunday'), ' — 11:00 am – 1:00 am')
             ),
-            React.createElement('div', { className: 'aside-buttons' },
-              React.createElement(Link, { to: '/reservations', className: 'aside-btn' }, 'RESERVATIONS'),
-              React.createElement(Link, { to: '/order', className: 'aside-btn' }, 'ORDER ONLINE')
-            ),
         )
         
       ),
@@ -359,4 +267,4 @@ function News() {
           )
 }
 
-export default News
+export default Newspage2

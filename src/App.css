@@ -192,10 +192,8 @@ body {
   align-items: center;
   /* removed dark overlay so the image displays without a black band */
   background-image: url('/images/pix12.webp');
-  background-position: center;
-  background-repeat: no-repeat;
   animation: none;
-  height: 450%; 
+  height: 455%; 
   background-color: transparent;
   margin-bottom: 0;
 }

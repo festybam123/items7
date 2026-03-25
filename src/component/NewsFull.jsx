@@ -110,7 +110,63 @@ function NewsFull() {
             React.createElement('blockquote', { className: 'news-blockquote-full' },
               'This is an example blockquote. Fusce lobortis, nisi vitae mattis viverra, diam magna ultrices urna, id fermentum lacus massa facilisis lectus. Proin nec metus leo.'
             ),
-            React.createElement('p', null, 'Morbi tortor velit, mattis sed sagittis et, cursus sit amet sem. Morbi eget velit justo. Nunc suscipit eros eget arcu pretium accumsan. Etiam congue tempor quam. Sed sed eros vel neque vulputate mollis interdum vel leo. Maecenas id tristique metus. Morbi euismod dignissim dolor eget viverra. Curabitur sodales faucibus justo quis lobortis. Cras ligula velit, congue ac laoreet eu, porttitor sit amet nulla. Nunc scelerisque nulla vitae urna euismod elementum. Cras congue commodo libero ac condimentum. Nullam vel elit nunc, eu tempus lectus. Proin sodales molestie leo, et sodales tortor malesuada ac. Cras aliquet viverra neque ac malesuada. Nullam tempor massa ut turpis fermentum vel laoreet diam tempor. Sed cursus nulla vel massa cursus et rhoncus erat pretium. In vehicula magna vitae ante sagittis ac semper risus feugiat. Morbi a massa lacus, quis congue massa. Suspendisse potenti. Fusce tristique, sem eu interdum laoreet, mauris justo malesuada purus, eget vehicula ligula justo eget elit.')
+            React.createElement('p', null, 'Morbi tortor velit, mattis sed sagittis et, cursus sit amet sem. Morbi eget velit justo. Nunc suscipit eros eget arcu pretium accumsan. Etiam congue tempor quam. Sed sed eros vel neque vulputate mollis interdum vel leo. Maecenas id tristique metus. Morbi euismod dignissim dolor eget viverra. Curabitur sodales faucibus justo quis lobortis. Cras ligula velit, congue ac laoreet eu, porttitor sit amet nulla. Nunc scelerisque nulla vitae urna euismod elementum. Cras congue commodo libero ac condimentum. Nullam vel elit nunc, eu tempus lectus. Proin sodales molestie leo, et sodales tortor malesuada ac. Cras aliquet viverra neque ac malesuada. Nullam tempor massa ut turpis fermentum vel laoreet diam tempor. Sed cursus nulla vel massa cursus et rhoncus erat pretium. In vehicula magna vitae ante sagittis ac semper risus feugiat. Morbi a massa lacus, quis congue massa. Suspendisse potenti. Fusce tristique, sem eu interdum laoreet, mauris justo malesuada purus, eget vehicula ligula justo eget elit.'),
+            // Comments Section
+          ),
+           React.createElement('div', { className: 'comments-section-full' },
+              React.createElement('h3', { className: 'comments-title' }, '2 responses to "Closed For Remodel"'),
+              // Comment 1
+              React.createElement('div', { className: 'comment-full' },
+                React.createElement('div', { className: 'comment-avatar' },
+                  React.createElement('img', { src: '/images/image radius.jpeg', alt: 'David Morgan', className: 'avatar-img' })
+                ),
+                React.createElement('div', { className: 'comment-body-full' },
+                  React.createElement('div', { className: 'comment-meta' },
+                    React.createElement('a', { href: 'http://dav.idmorgan.com/', className: 'comment-author-link' }, 'David Morgan'),
+                    React.createElement('a', { href: 'https://organicthemes.com/demo/restaurant-block/closed-remodel/#comment-24429', className: 'comment-date-link' }, 'November 2, 2022')
+                  ),
+                  React.createElement('p', { className: 'comment-text' }, 'This is an example comment.'),
+                  React.createElement('a', { href: 'https://organicthemes.com/demo/restaurant-block/closed-remodel/?replytocom=24429#respond', className: 'comment-reply' }, 'Reply')
+                )
+              ),
+              // Comment 2 (Reply)
+              React.createElement('div', { className: 'comment-full comment-reply-full' },
+                React.createElement('div', { className: 'comment-avatar' },
+                  React.createElement('img', { src: '/images/image radius.jpeg', alt: 'David Morgan', className: 'avatar-img' })
+                ),
+                React.createElement('div', { className: 'comment-body-full' },
+                  React.createElement('div', { className: 'comment-meta' },
+                    React.createElement('a', { href: 'http://dav.idmorgan.com/', className: 'comment-author-link' }, 'David Morgan'),
+                    React.createElement('a', { href: 'https://organicthemes.com/demo/restaurant-block/closed-remodel/#comment-24429', className: 'comment-date-link' }, 'November 2, 2022')
+                  ),
+                  React.createElement('p', { className: 'comment-text' }, 'This is an example reply.'),
+                  React.createElement('a', { href: 'https://organicthemes.com/demo/restaurant-block/closed-remodel/?replytocom=24429#respond', className: 'comment-reply' }, 'Reply')
+                )
+              ),
+                    React.createElement('div', { className: 'comment-form-full' },
+              React.createElement('h3', { className: 'comment-form-title' }, 'LEAVE A REPLY'),
+              React.createElement('p', { className: 'comment-form-note' }, 'Your email address will not be published. Required fields are marked *'),
+              React.createElement('form', { className: 'reply-form' },
+                React.createElement('div', { className: 'form-group' },
+                  React.createElement('label', { htmlFor: 'comment' }, 'Comment *'),
+                  React.createElement('textarea', { id: 'comment', name: 'comment', rows: 5, required: true })
+                ),
+                React.createElement('div', { className: 'form-group' },
+                  React.createElement('label', { htmlFor: 'name' }, 'Name *'),
+                  React.createElement('input', { type: 'text', id: 'name', name: 'name', required: true })
+                ),
+                React.createElement('div', { className: 'form-group' },
+                  React.createElement('label', { htmlFor: 'email' }, 'Email *'),
+                  React.createElement('input', { type: 'email', id: 'email', name: 'email', required: true })
+                ),
+                React.createElement('div', { className: 'form-group' },
+                  React.createElement('label', { htmlFor: 'website' }, 'Website'),
+                  React.createElement('input', { type: 'url', id: 'website', name: 'website' })
+                ),
+                React.createElement('button', { type: 'submit', className: 'submit-btn' }, 'Post Comment')
+              )
+            ),
+      
         ),
         React.createElement('footer', { className: 'footer' },
               React.createElement('div', { className: 'footer-content' },
@@ -125,6 +181,7 @@ function NewsFull() {
                     React.createElement('li', null, React.createElement(Link, { to: '/locations/port-harcourt' }, 'Austin, TX')),
                     React.createElement('li', null, React.createElement(Link, { to: '/locations/ibadan' }, 'Seattle, WA'))
                   )
+
                 ),
                 React.createElement('div', { className: 'footer-section' },
                   React.createElement('h3', null, 'HOURS'),
