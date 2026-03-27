@@ -42,7 +42,7 @@ function Newlocation() {
           dropdownOpen === 'about' &&
           React.createElement(
             'div',
-            { className: 'dropdown-full' },
+            { className: 'dropdown-full', onMouseEnter: () => handleMouseEnter('about'), onMouseLeave: handleMouseLeave },
             React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
             React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
             React.createElement(Link, { to: '/contact', className: 'dropdown-link' }, 'Contact')
@@ -64,7 +64,7 @@ function Newlocation() {
           dropdownOpen === 'templates' &&
           React.createElement(
             'div',
-            { className: 'dropdown-full' },
+            { className: 'dropdown-full', onMouseEnter: () => handleMouseEnter('templates'), onMouseLeave: handleMouseLeave },
             React.createElement(Link, { to: '/templates/blog', className: 'dropdown-link' }, 'Blog'),
             React.createElement(Link, { to: '/templates/category', className: 'dropdown-link' }, 'Category'),
             React.createElement(Link, { to: '/templates/product', className: 'dropdown-link' }, 'Product'),
@@ -120,6 +120,8 @@ function Newlocation() {
 
         ),
         // Comment Form
+      ),
+
         React.createElement('div', { className: 'comment-form-full2' },
           React.createElement('h3', { className: 'comment-form-title2' }, 'LEAVE A REPLY'),
           React.createElement('p', { className: 'comment-form-note2' }, 'Your email address will not be published. Required fields are marked *'),
@@ -144,7 +146,6 @@ function Newlocation() {
           )
       ),
 
-      ),
       React.createElement('footer', { className: 'footer' },
         React.createElement('div', { className: 'footer-content' },
           React.createElement('div', { className: 'footer-section' },

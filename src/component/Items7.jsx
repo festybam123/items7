@@ -22,7 +22,7 @@ function Items7() {
         React.createElement(Link, { to: '/menu', className: 'nav-link' }, 'MENU'),
         React.createElement('div', { className: 'nav-item', onMouseEnter: () => setAboutOpen(true), onMouseLeave: () => setAboutOpen(false) },
           React.createElement(Link, { to: '/about', className: 'nav-link' }, 'ABOUT', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
-          aboutOpen && React.createElement('div', { className: 'dropdown' },
+          aboutOpen && React.createElement('div', { className: 'dropdown', onMouseEnter: () => setAboutOpen(true), onMouseLeave: () => setAboutOpen(false) },
             React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
             React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
             React.createElement(Link, { to: '/contact', className: 'dropdown-link' }, 'Contact')
@@ -30,7 +30,7 @@ function Items7() {
         ),
         React.createElement('div', { className: 'nav-item', onMouseEnter: () => setTemplatesOpen(true), onMouseLeave: () => setTemplatesOpen(false) },
           React.createElement('div', { className: 'nav-link' }, 'TEMPLATES', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
-          templatesOpen && React.createElement('div', { className: 'dropdown' },
+          templatesOpen && React.createElement('div', { className: 'dropdown', onMouseEnter: () => setTemplatesOpen(true), onMouseLeave: () => setTemplatesOpen(false) },
             React.createElement(Link, { to: '/blog', className: 'dropdown-link' }, 'Blog'),
             React.createElement(Link, { to: '/category', className: 'dropdown-link' }, 'Category'),
             React.createElement(Link, { to: '/product', className: 'dropdown-link' }, 'Product'),

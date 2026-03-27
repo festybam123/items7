@@ -20,14 +20,17 @@
   margin-top: 25px;
 }
 
-.news-main-flex-full2 p{
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  text-align: center;
-  font-family: 'montserrat', sans-serif;
+.news-main-flex-full2 p {
+  font-size: 1.2rem;
+  color: #333333ce;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family:sans-serif;
 }
+
 
 .news-section-full3 {
   position: relative;
@@ -70,7 +73,7 @@
 
 /* Comment Form Styles */
 .comment-form-full2 {
-  margin: 50px auto;
+  margin-top: 30px;
   padding: 10vh;
   background: #f9f9f9;
   border-radius: 8px;

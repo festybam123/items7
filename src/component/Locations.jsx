@@ -41,7 +41,7 @@ function Locations() {
         aboutOpen &&
           React.createElement(
             'div',
-            { className: 'dropdown' },
+            { className: 'dropdown', onMouseEnter: () => setAboutOpen(true), onMouseLeave: () => setAboutOpen(false) },
             React.createElement(Link, { to: '/about/history', className: 'dropdown-link' }, 'History'),
             React.createElement(Link, { to: '/about/news', className: 'dropdown-link' }, 'News'),
             React.createElement(Link, { to: '/about/contact', className: 'dropdown-link' }, 'Contact')
@@ -60,7 +60,7 @@ function Locations() {
         templatesOpen &&
           React.createElement(
             'div',
-            { className: 'dropdown' },
+            { className: 'dropdown', onMouseEnter: () => setTemplatesOpen(true), onMouseLeave: () => setTemplatesOpen(false) },
             React.createElement(Link, { to: '/templates/blog', className: 'dropdown-link' }, 'Blog'),
             React.createElement(Link, { to: '/templates/category', className: 'dropdown-link' }, 'Category'),
             React.createElement(Link, { to: '/templates/product', className: 'dropdown-link' }, 'Product'),

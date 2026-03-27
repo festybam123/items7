@@ -69,7 +69,7 @@ function News() {
           dropdownOpen === 'about' &&
           React.createElement(
             'div',
-            { className: 'dropdown' },
+            { className: 'dropdown', onMouseEnter: () => handleMouseEnter('about'), onMouseLeave: handleMouseLeave },
             React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
             React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
             React.createElement(Link, { to: '/contact', className: 'dropdown-link' }, 'Contact')
@@ -91,7 +91,7 @@ function News() {
           dropdownOpen === 'templates' &&
           React.createElement(
             'div',
-            { className: 'dropdown' },
+            { className: 'dropdown', onMouseEnter: () => handleMouseEnter('templates'), onMouseLeave: handleMouseLeave },
             React.createElement(Link, { to: '/templates/blog', className: 'dropdown-link' }, 'Blog'),
             React.createElement(Link, { to: '/templates/category', className: 'dropdown-link' }, 'Category'),
             React.createElement(Link, { to: '/templates/product', className: 'dropdown-link' }, 'Product'),
@@ -194,7 +194,7 @@ function News() {
           { className: 'news-section' },
           React.createElement(
             'a',
-            { href: '/news/full', className: 'news-image-link3' },
+            { href: '/cofshop', className: 'news-image-link3' },
             React.createElement('img', { src: '/images/NewsIMG3.jpg', alt: 'News', className: 'news-main-image' })
           )
         )
@@ -221,7 +221,7 @@ function News() {
             React.createElement(
               'a',
               { 
-                href: '/news/full', 
+                href: '/cofshop', 
                 className: 'news-more-link'
               },
               'more...'

@@ -59,7 +59,7 @@ function Contact() {
                dropdownOpen === 'about' &&
                React.createElement(
                  'div',
-                 { className: 'dropdown' },
+                 { className: 'dropdown', onMouseEnter: () => handleMouseEnter('about'), onMouseLeave: handleMouseLeave },
                  React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
                  React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
                  React.createElement(Link, { to: '/contact', className: 'dropdown-link' }, 'Contact')
@@ -81,7 +81,7 @@ function Contact() {
                dropdownOpen === 'templates' &&
                React.createElement(
                  'div',
-                 { className: 'dropdown' },
+                 { className: 'dropdown', onMouseEnter: () => handleMouseEnter('templates'), onMouseLeave: handleMouseLeave },
                  React.createElement(Link, { to: '/templates/blog', className: 'dropdown-link' }, 'Blog'),
                  React.createElement(Link, { to: '/templates/category', className: 'dropdown-link' }, 'Category'),
                  React.createElement(Link, { to: '/templates/product', className: 'dropdown-link' }, 'Product'),
@@ -92,70 +92,70 @@ function Contact() {
              React.createElement(Link, { to: '/order', className: 'nav-link2' }, 'ORDER ONLINE'),
            ),
 
-        React.createElement(
-            'div',
-            { className: 'contact-content-full' },
-            React.createElement('h2', { className: 'contact-header-full' }, 'Contact'),
-            React.createElement('p', { className: 'contact-intro-full' }, 'This page utilizes the contact form available in the ', React.createElement('a', { href: 'https://wordpress.org/plugins/jetpack/', target: '_blank', rel: 'noopener noreferrer' }, 'Jetpack'), ' plugin.'),
-            React.createElement(
-                'form',
-                { className: 'contact-form-full', onSubmit: handleSubmit },
-                React.createElement(
-                    'div',
-                    { className: 'contact-form-group-full' },
-                    React.createElement('label', { htmlFor: 'name', className: 'contact-label-full' }, 
-                        'Name',
-                        React.createElement('span', { className: 'contact-required-full' }, '(required)')
-                    ),
-                    React.createElement('input', {
-                        type: 'text',
-                        id: 'name',
-                        name: 'name',
-                        value: formData.name,
-                        onChange: handleChange,
-                        className: 'contact-input-full',
-                        required: true
-                    })
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'contact-form-group-full' },
-                    React.createElement('label', { htmlFor: 'email', className: 'contact-label-full' }, 
-                        'Email',
-                        React.createElement('span', { className: 'contact-required-full' }, '(required)')
-                    ),
-                    React.createElement('input', {
-                        type: 'email',
-                        id: 'email',
-                        name: 'email',
-                        value: formData.email,
-                        onChange: handleChange,
-                        className: 'contact-input-full',
-                        required: true
-                    })
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'contact-form-group-full' },
-                    React.createElement('label', { htmlFor: 'message', className: 'contact-label-full' }, 'Message'),
-                    React.createElement('textarea', {
-                        id: 'message',
-                        name: 'message',
-                        value: formData.message,
-                        onChange: handleChange,
-                        className: 'contact-textarea-full',
-                        rows: 6
-                    })
-                ),
-                React.createElement(
-                    'button',
-                    { type: 'submit', className: 'contact-submit-btn-full' },
-                    'Contact Us'
-                ),
-                submitted && React.createElement('p', { className: 'contact-success-full' }, 'Thank you! Your message has been sent.')
-            )
-        ),
-         React.createElement('footer', { className: 'footer' },
+       React.createElement(
+           'div',
+           { className: 'contact-content-full' },
+           React.createElement('h2', { className: 'contact-header-full' }, 'Contact'),
+           React.createElement('p', { className: 'contact-intro-full' }, 'This page utilizes the contact form available in the ', React.createElement('a', { href: 'https://wordpress.org/plugins/jetpack/', target: '_blank', rel: 'noopener noreferrer' }, 'Jetpack'), ' plugin.'),
+           React.createElement(
+               'form',
+               { className: 'contact-form-full', onSubmit: handleSubmit },
+               React.createElement(
+                   'div',
+                   { className: 'contact-form-group-full' },
+                   React.createElement('label', { htmlFor: 'name', className: 'contact-label-full' }, 
+                       'Name',
+                       React.createElement('span', { className: 'contact-required-full' }, '(required)')
+                   ),
+                   React.createElement('input', {
+                       type: 'text',
+                       id: 'name',
+                       name: 'name',
+                       value: formData.name,
+                       onChange: handleChange,
+                       className: 'contact-input-full',
+                       required: true
+                   })
+               ),
+               React.createElement(
+                   'div',
+                   { className: 'contact-form-group-full' },
+                   React.createElement('label', { htmlFor: 'email', className: 'contact-label-full' }, 
+                       'Email',
+                       React.createElement('span', { className: 'contact-required-full' }, '(required)')
+                   ),
+                   React.createElement('input', {
+                       type: 'email',
+                       id: 'email',
+                       name: 'email',
+                       value: formData.email,
+                       onChange: handleChange,
+                       className: 'contact-input-full',
+                       required: true
+                   })
+               ),
+               React.createElement(
+                   'div',
+                   { className: 'contact-form-group-full' },
+                   React.createElement('label', { htmlFor: 'message', className: 'contact-label-full' }, 'Message'),
+                   React.createElement('textarea', {
+                       id: 'message',
+                       name: 'message',
+                       value: formData.message,
+                       onChange: handleChange,
+                       className: 'contact-textarea-full',
+                       rows: 6
+                   })
+               ),
+               React.createElement(
+                   'button',
+                   { type: 'submit', className: 'contact-submit-btn-full' },
+                   'Contact Us'
+               ),
+               submitted && React.createElement('p', { className: 'contact-success-full' }, 'Thank you! Your message has been sent.')
+           )
+       ),
+        React.createElement('footer', { className: 'footer' },
                       React.createElement('div', { className: 'footer-content' },
                         React.createElement('div', { className: 'footer-section' },
                           React.createElement('h3', null, 'LOCATIONS'),

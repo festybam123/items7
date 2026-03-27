@@ -38,7 +38,7 @@ function Menu() {
         dropdownOpen === 'about' &&
           React.createElement(
             'div',
-            { className: 'dropdown' },
+            { className: 'dropdown', onMouseEnter: () => handleMouseEnter('about'), onMouseLeave: handleMouseLeave },
             React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
             React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
             React.createElement(Link, { to: '/contact', className: 'dropdown-link' }, 'Contact')
@@ -55,7 +55,7 @@ function Menu() {
         dropdownOpen === 'templates' &&
           React.createElement(
             'div',
-            { className: 'dropdown' },
+            { className: 'dropdown', onMouseEnter: () => handleMouseEnter('templates'), onMouseLeave: handleMouseLeave },
             React.createElement(Link, { to: '/blog', className: 'dropdown-link' }, 'Blog'),
             React.createElement(Link, { to: '/category', className: 'dropdown-link' }, 'Category'),
             React.createElement(Link, { to: '/product', className: 'dropdown-link' }, 'Product'),
