@@ -5,7 +5,8 @@ import './Cart.css';
 function Cart() {
   const location = useLocation();
   const cartItems = location.state?.items || [];
-  
+  const quantities = location.state?.quantities || {};
+
   const [couponCode, setCouponCode] = useState('');
   const [showCouponForm, setShowCouponForm] = useState(false);
   const [discount, setDiscount] = useState(0);
@@ -15,7 +16,7 @@ function Cart() {
     firstName: '',
     lastName: '',
     company: '',
-    country: 'Nigeria',
+    country: '',
     streetAddress: '',
     houseNumber: '',
     apartment: '',
@@ -39,7 +40,8 @@ function Cart() {
   const priceToNumber = (p) => parseFloat(String(p).replace(/[^0-9.]/g, '')) || 0;
   
   const subtotal = cartItems.reduce((sum, item) => {
-    return sum + priceToNumber(item.price);
+    const qty = quantities[item.id] || 1;
+    return sum + priceToNumber(item.price) * qty;
   }, 0);
   
   const applyCoupon = () => {
@@ -90,11 +92,42 @@ function Cart() {
     return Object.keys(newErrors).length === 0;
   };
   
-  const handlePlaceOrder = (e) => {
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  const [orderId, setOrderId] = useState(null);
+
+  const handlePlaceOrder = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      alert('Order placed successfully! Thank you for your order.');
-      // Here you would typically submit the order to a backend
+    if (!validateForm()) return;
+
+    const orderData = {
+      items: cartItems,
+      formData: { ...formData, paymentMethod },
+      discount,
+      total
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      });
+      if (!response.ok) throw new Error('Failed to submit order');
+      const data = await response.json();
+      setOrderPlaced(true);
+      setOrderId(data.orderId);
+      let message = 'Order placed successfully! Thank you for your order.';
+      if (paymentMethod === 'cash') {
+        message = 'Order placed successfully! Please have the exact cash ready for delivery.';
+      } else if (paymentMethod === 'check') {
+        message = 'Order placed successfully! Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.';
+      } else if (paymentMethod === 'paypal') {
+        message = 'Order placed successfully! You will be redirected to PayPal to complete your payment (integration required).';
+      }
+      alert(message);
+      // Optionally, clear cart or redirect user here
+    } catch (err) {
+      alert('There was an error placing your order. Please try again.');
     }
   };
   
@@ -196,7 +229,12 @@ function Cart() {
               checked: paymentMethod === 'cash',
               onChange: (e) => setPaymentMethod(e.target.value)
             }),
-            React.createElement('label', { htmlFor: 'cod' }, 'Cash on delivery')
+            React.createElement('label', { htmlFor: 'cod' }, 'Cash on delivery'),
+            paymentMethod === 'cash' && React.createElement(
+              'div',
+              { className: 'payment-details' },
+              React.createElement('p', null, 'Please have the exact cash ready for delivery.')
+            )
           ),
           React.createElement(
             'div',
@@ -418,9 +456,9 @@ function Cart() {
                       'span',
                       { className: 'order-summary-item-name' },
                       item.title,
-                      React.createElement('span', { className: 'order-summary-item-qty' }, ' x1')
+                      React.createElement('span', { className: 'order-summary-item-qty' }, ` x${quantities[item.id] || 1}`)
                     ),
-                    React.createElement('span', { className: 'order-summary-item-price' }, item.price)
+                    React.createElement('span', { className: 'order-summary-item-price' }, `$${(priceToNumber(item.price) * (quantities[item.id] || 1)).toFixed(2)}`)
                   )
                 )
               ),
@@ -450,60 +488,59 @@ function Cart() {
                 'button',
                 { type: 'submit', onClick: handlePlaceOrder, className: 'place-order-button' },
                 'Place Order'
-              )
+              ),
             )
       )
     ),
     
-    React.createElement(
-      'footer',
-      { className: 'checkout-footer' },
-      React.createElement(
-        'div',
-        { className: 'checkout-footer-content' },
-        React.createElement(
-          'div',
-          { className: 'checkout-footer-section' },
-          React.createElement('h3', null, 'LOCATIONS'),
-          React.createElement('ul', null,
-            React.createElement('li', null, 'Sarasota, FL'),
-            React.createElement('li', null, 'Honolulu, HI'),
-            React.createElement('li', null, 'San Diego, CA'),
-            React.createElement('li', null, 'Savannah, GA')
+        React.createElement('footer', { className: 'footer' },
+              React.createElement('div', { className: 'footer-content' },
+                React.createElement('div', { className: 'footer-section' },
+                  React.createElement('h3', null, 'LOCATIONS'),
+                  React.createElement('hr', { className: 'footer-divider' }),
+                  React.createElement('ul', null,
+                    React.createElement('li', null, React.createElement(Link, { to: '/locations/lagos' }, 'Sarasota, FL')),
+                    React.createElement('li', null, React.createElement(Link, { to: '/locations/abuja' }, 'Honolulu, HI')),
+                    React.createElement('li', null, React.createElement(Link, { to: '/locations/port-harcourt' }, 'San Diego, CA')),
+                    React.createElement('li', null, React.createElement(Link, { to: '/locations/ibadan' }, 'Savannah, GA')),
+                    React.createElement('li', null, React.createElement(Link, { to: '/locations/port-harcourt' }, 'Austin, TX')),
+                    React.createElement('li', null, React.createElement(Link, { to: '/locations/ibadan' }, 'Seattle, WA'))
+                  )
+                ),
+                React.createElement('div', { className: 'footer-section' },
+                  React.createElement('h3', null, 'HOURS'),
+                  React.createElement('hr', { className: 'footer-divider' }),
+                  React.createElement('ul', null,
+                        React.createElement('li', null, 'Monday  9:00 AM - 11:00 PM'),
+                        React.createElement('li', null, 'Tuesday  9:00 AM - 11:00 PM'),
+                        React.createElement('li', null, 'Wednesday  9:00 AM - 11:00 PM'),
+                        React.createElement('li', null, 'Thursday  9:00 AM - 11:00 PM'),
+                        React.createElement('li', null, 'Friday  9:00 AM - 11:00 PM'),
+                        React.createElement('li', null, 'Saturday 9:00 AM - 11:00 PM'),
+                        React.createElement('li', null, 'Sunday:  9:00 AM - 11:00 PM')
+                  )
+                ),
+                React.createElement('div', { className: 'footer-section' },
+                  React.createElement('h3', null, 'CONNECT'),
+                  React.createElement('hr', { className: 'footer-divider' }),
+                  React.createElement('p', null, 'Address:'),
+                  React.createElement('p', null, '19s Lemon St, Sarasota, FL 34236'),
+                  React.createElement('p', null, 'Phone: 941-123-4567'),
+                  React.createElement('p', null, 'Email: info@restaurant.com')
+                ),
+                React.createElement('div', { className: 'footer-section' },
+                  React.createElement('div', { className: 'footer-buttons' },
+                    React.createElement(Link, { to: '/reservations', className: 'footer-btn' }, 'RESERVATIONS'),
+                    React.createElement(Link, { to: '/order-online', className: 'footer-btn' }, 'ORDER ONLINE')
+      
+                  )
+                )
+              ),
+              React.createElement('div', { className: 'footer-bottom' },
+                React.createElement('p', null, '© 2026 Restaurant. All rights reserved.')
+              )
+            )
           )
-        ),
-        React.createElement(
-          'div',
-          { className: 'checkout-footer-section' },
-          React.createElement('h3', null, 'HOURS'),
-          React.createElement('ul', null,
-            React.createElement('li', null, 'Monday — 9:00 am – 11:00 pm'),
-            React.createElement('li', null, 'Tuesday — 9:00 am – 11:00 pm'),
-            React.createElement('li', null, 'Wednesday — 9:00 am – 11:00 pm'),
-            React.createElement('li', null, 'Thursday — 9:00 am – 11:00 pm'),
-            React.createElement('li', null, 'Friday — 9:00 am – 11:00 pm'),
-            React.createElement('li', null, 'Saturday — 11:00 am – 1:00 am'),
-            React.createElement('li', null, 'Sunday — 11:00 am – 1:00 am')
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'checkout-footer-section' },
-          React.createElement('h3', null, 'CONNECT'),
-          React.createElement('ul', null,
-            React.createElement('li', null, 'Address: 19s Lemon St, Sarasota, FL 34236'),
-            React.createElement('li', null, 'Phone: 941-123-4567'),
-            React.createElement('li', null, 'Email: info@restaurant.com')
-          )
-        )
-      ),
-      React.createElement(
-        'div',
-        { className: 'checkout-footer-bottom' },
-        React.createElement('p', null, '© 2026 Restaurant. All rights reserved.')
-      )
-    )
-  );
 }
 
 export default Cart;

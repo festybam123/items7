@@ -293,7 +293,14 @@ function Order() {
                   React.createElement('strong', null, 'Estimated total'),
                   React.createElement('strong', null, `${estimatedTotal.toFixed(2)}`)
                 ),
-                React.createElement(Link, { to: '/cart', state: { items: popularItems.filter(i => cartIds.includes(i.id)) }, className: 'checkout-button' }, 'Proceed to Checkout')
+                React.createElement(Link, {
+                  to: '/cart',
+                  state: {
+                    items: popularItems.filter(i => cartIds.includes(i.id)),
+                    quantities: quantities
+                  },
+                  className: 'checkout-button'
+                }, 'Proceed to Checkout')
               )
         ),
         React.createElement('div', { className: 'aside-info-section' },
