@@ -364,3 +364,65 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 430px) {
+  .checkout-navbar {
+    flex-direction: column;
+    padding: 10px 8px;
+    gap: 8px;
+  }
+  .checkout-nav-link1 {
+    font-size: 18px;
+  }
+  .checkout-nav-link {
+    font-size: 12px;
+    margin: 0 8px;
+  }
+  .checkout-main-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 4px;
+  }
+  .checkout-form-section,
+  .checkout-order-summary {
+    min-width: 100%;
+    width: 100%;
+    padding: 10px 4px;
+    box-sizing: border-box;
+  }
+  .checkout-form-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .checkout-form-group input,
+  .checkout-form-group select,
+  .checkout-form-group textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+  .checkout-coupon-section {
+    padding: 10px;
+  }
+  .checkout-order-summary {
+    padding: 10px 4px;
+  }
+  .order-summary-title {
+    font-size: 16px;
+  }
+  .place-order-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .checkout-footer-content {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 4px;
+  }
+  .checkout-footer-section {
+    min-width: 100%;
+    padding: 0 4px;
+  }
+  .checkout-footer {
+    padding: 20px 4px;
+  }
+}
