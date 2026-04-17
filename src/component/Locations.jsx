@@ -16,6 +16,10 @@ function Locations() {
       setCartIds(prev => prev.includes(item.id) ? prev : [...prev, item.id]);
     };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return React.createElement(
      'div',
     { style: { backgroundColor: 'white' } }, // Set background color to white
@@ -161,8 +165,8 @@ function Locations() {
              ),
              React.createElement('div', { className: 'footer-section' },
                React.createElement('div', { className: 'footer-buttons' },
-                 React.createElement(Link, { to: '/reservations', className: 'footer-btn' }, 'RESERVATIONS'),
-                 React.createElement(Link, { to: '/order-online', className: 'footer-btn' }, 'ORDER ONLINE')
+                 React.createElement('button', { className: 'footer-btn', onClick: scrollToTop }, 'RESERVATIONS'),
+                 React.createElement('button', { className: 'footer-btn', onClick: scrollToTop }, 'ORDER ONLINE')
    
                )
              )

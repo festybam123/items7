@@ -323,8 +323,8 @@ function Menu() {
                ),
                React.createElement('div', { className: 'footer-section' },
                  React.createElement('div', { className: 'footer-buttons' },
-                   React.createElement(Link, { to: '/reservations', className: 'footer-btn' }, 'RESERVATIONS'),
-                   React.createElement(Link, { to: '/order-online', className: 'footer-btn' }, 'ORDER ONLINE')
+                   React.createElement('button', { className: 'footer-btn', onClick: () => window.scrollTo({ top: 0, behavior: 'smooth' }) }, 'RESERVATIONS'),
+                   React.createElement('button', { className: 'footer-btn', onClick: () => window.scrollTo({ top: 0, behavior: 'smooth' }) }, 'ORDER ONLINE')
      
                  )
                )
