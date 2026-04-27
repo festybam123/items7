@@ -165,11 +165,11 @@ function Order() {
                 React.createElement(
                   'div',
                   { className: 'dropdown', onMouseEnter: () => handleMouseEnter('templates'), onMouseLeave: handleMouseLeave },
-                  React.createElement(Link, { to: '/blog', className: 'dropdown-link' }, 'Blog'),
+                  React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'Blog'),
                   React.createElement(Link, { to: '/category', className: 'dropdown-link' }, 'Category'),
                   React.createElement(Link, { to: '/product', className: 'dropdown-link' }, 'Product'),
                   React.createElement(Link, { to: '/product-category', className: 'dropdown-link' }, 'Product Category'),
-                  React.createElement(Link, { to: '/sidebar-page', className: 'dropdown-link' }, 'Sidebar Page')
+                  React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'sidebar Page')
                 )
             ),
       React.createElement(Link, { to: '/order', className: 'nav-link2' }, 'ORDER ONLINE'),
@@ -388,3 +388,84 @@ function Order() {
 }
 
 export default Order;
+
+
+
+
+// Backend Engineering Assignment – Digital Banking System
+
+// You have recently been employed as a Backend Engineer at a startup bank (the name will be assigned by NIBSS by Phoenix). As the sole backend engineer, you are responsible for designing and building the core backend system of the bank.
+
+// 🎯 Objective
+
+// Develop a functional backend system that supports:
+
+// Customer onboarding
+// Account management
+// Core banking operations
+
+// This system must integrate with the APIs provided by NibssByPhoenix.
+
+// 📌 Requirements
+// 1. Customer Onboarding System
+
+// Design and implement a complete onboarding workflow for bank customers.
+
+// Key Requirements:
+
+// Integrate with the BVN/NIN onboarding endpoints provided by NibssByPhoenix
+// (Note: No real BVN or NIN is allowed)
+
+// Ensure that:
+
+// A customer must be successfully verified using either BVN or NIN before onboarding is completed.
+// Account creation is only allowed after successful onboarding and verification.
+// 2. Account Creation
+
+// Create bank accounts for each successfully onboarded customer.
+
+// Rules:
+
+// Each customer must have a maximum of one (1) account.
+
+// Upon account creation:
+
+// Each account must be pre-funded with ₦15,000 to enable testing and transactions.
+// 3. Core Banking Operations
+
+// Ensure that customers can perform the following operations:
+
+// Name Enquiry
+// Verify recipient details before initiating a transfer.
+// Funds Transfer
+// Intra-bank transfers (within your bank)
+// Inter-bank transfers (to other banks)
+// Account Balance Check
+// Transaction Status Check
+// 🧪 Testing Note
+
+// You may perform transfers:
+
+// Between accounts you have created, or
+// To accounts created by your colleagues.
+// 4. Transaction History & Data Privacy
+
+// Implement transaction tracking and enforce strict data privacy.
+
+// Requirements:
+
+// Each customer must be able to:
+// View only their own transaction history
+// Ensure proper data isolation:
+// No customer should have access to another customer’s data.
+// 5. NibssByPhoenix API Integration
+
+// Use the provided API documentation from NibssByPhoenix.
+
+// Getting Started:
+
+// Call the onboarding endpoint and provide:
+// Your email address
+// Your company (bank) name
+// You will receive API credentials via email.
+// Use these credentials to authenticate and access other endpoints.

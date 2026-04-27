@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './News.css';
+import './Category.css';
 
 
-function News() {
+function Category() {
     const navigate = useNavigate();
     
     // Dropdown state
@@ -359,4 +359,4 @@ function News() {
           )
 }
 
-export default News
+export default Category

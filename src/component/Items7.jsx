@@ -17,7 +17,7 @@ function Items7() {
   return (
     React.createElement(React.Fragment, null,
       React.createElement('nav', { className: 'navbar' },
-        React.createElement(Link, { to: '/', className: 'nav-link1' }, 'RESTAURANT'),
+        React.createElement(Link, { to: '/', className: 'nav-link1' }, '🍽️RESTAURANT'),
         React.createElement(Link, { to: '/locations', className: 'nav-link' }, 'LOCATIONS'),
         React.createElement(Link, { to: '/menu', className: 'nav-link' }, 'MENU'),
         React.createElement('div', { className: 'nav-item', onMouseEnter: () => setAboutOpen(true), onMouseLeave: () => setAboutOpen(false) },
@@ -31,11 +31,11 @@ function Items7() {
         React.createElement('div', { className: 'nav-item', onMouseEnter: () => setTemplatesOpen(true), onMouseLeave: () => setTemplatesOpen(false) },
           React.createElement('div', { className: 'nav-link' }, 'TEMPLATES', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
           templatesOpen && React.createElement('div', { className: 'dropdown', onMouseEnter: () => setTemplatesOpen(true), onMouseLeave: () => setTemplatesOpen(false) },
-            React.createElement(Link, { to: '/blog', className: 'dropdown-link' }, 'Blog'),
+            React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'Blog'),
             React.createElement(Link, { to: '/category', className: 'dropdown-link' }, 'Category'),
             React.createElement(Link, { to: '/product', className: 'dropdown-link' }, 'Product'),
             React.createElement(Link, { to: '/product-category', className: 'dropdown-link' }, 'Product Category'),
-            React.createElement(Link, { to: '/sidebar-page', className: 'dropdown-link' }, 'Sidebar Page')
+            React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'sidebar Page')
           )
         ),
         React.createElement(Link, { to: '/order', className: 'nav-link2' }, 'ORDER ONLINE')
@@ -143,7 +143,7 @@ function Items7() {
             React.createElement('p', { className: 'spacer2_text2' }, 'Give the gift of delicious food'),
 
           ),
-            React.createElement(Link, { to: '/order-online', className: 'spacer2_btn' }, 'BUY GIFT CARDS')
+            React.createElement(Link, { to: '/contact', className: 'spacer2_btn' }, 'BUY GIFT CARDS')
         )
 
       ),
