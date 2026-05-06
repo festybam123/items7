@@ -15,6 +15,9 @@ import Newlocation from './component/Newlocation.jsx'
 import Cofshop from './component/Cofshop.jsx'
 import Cart from './component/Cart.jsx'
 import Category from './component/Category.jsx'
+import Products from './component/Products.jsx'
+import ProductCategory from './component/ProductCategory.jsx'
+import SidebarPage from './component/SidebarPage.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 
@@ -37,6 +40,9 @@ function App() {
         <Route path='/cofshop' element={<Cofshop />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/category' element={<Category />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/productcategory' element={<ProductCategory />} />
+        <Route path='/sidebarpage' element={<SidebarPage />} />
       </Routes>
     </BrowserRouter>
   )

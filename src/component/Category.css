@@ -1,3 +1,14 @@
+.news-title {
+  font-size: 1.5rem;
+  color: #0000009a;
+  font-weight: bold;
+  margin: 0px, 10px;
+  margin-top: 25px;
+  padding: 30px;
+  background-color: #fff;
+  width: 65.5%;
+}
+
 /* Flex container for main content and aside */
 .news-main-flex {
   position: relative;

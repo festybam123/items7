@@ -58,9 +58,9 @@ function Menu() {
             { className: 'dropdown', onMouseEnter: () => handleMouseEnter('templates'), onMouseLeave: handleMouseLeave },
             React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'Blog'),
             React.createElement(Link, { to: '/category', className: 'dropdown-link' }, 'Category'),
-            React.createElement(Link, { to: '/product', className: 'dropdown-link' }, 'Product'),
-            React.createElement(Link, { to: '/product-category', className: 'dropdown-link' }, 'Product Category'),
-            React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'sidebar Page')
+            React.createElement(Link, { to: '/products', className: 'dropdown-link' }, 'Product'),
+            React.createElement(Link, { to: '/productCategory', className: 'dropdown-link' }, 'Product Category'),
+            React.createElement(Link, { to: '/SidebarPage', className: 'dropdown-link' }, 'sidebar Page')
           )
       ),
       React.createElement(Link, { to: '/order', className: 'nav-link2' }, 'ORDER ONLINE')

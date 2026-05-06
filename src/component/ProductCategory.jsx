@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import './Order.css';
+import './productCategory.css';
 
-function Order() {
+function productCategory() {
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const dropdownRef = useRef(null);
   
@@ -41,15 +41,6 @@ function Order() {
     { id: 4, src: '/images/pix8.jpg', title: 'DOUBLE BURGER', price: '$22.99' },
     { id: 5, src: '/images/pix10.jpg', title: 'FRENSG TOAST', price: '$16.50' },
     { id: 6, src: '/images/oder3.jpg', title: 'GREEN GOBLIN', price: '$12.99' },
-    { id: 7, src: '/images/oder4.jpg', title: 'GRILLED SALMON', price: '$38.00' },
-    { id: 8, src: '/images/oder5.jpg', title: 'KEY LIME RASPBERRY PIE', price: '$12.75' },
-    { id: 9, src: '/images/pix9.jpg', title: 'MAHI AHI TACOS', price: '$18.50' },
-    { id: 10, src: '/images/oder6.jpg', title: 'MANGO MARTINI', price: '$14.99' },
-    { id: 11, src: '/images/oder7.jpg', title: 'OLD FASHIONED', price: '$14.50' },
-    { id: 12, src: '/images/oder8.jpg', title: 'PINK LEMONADE SPRITZER', price: '$11.99' },
-    { id: 13, src: '/images/oder9.jpg', title: 'SHAKE CAKE', price: '$12.75' },
-    { id: 14, src: '/images/oder10.jpg', title: 'Souvlaki Plate', price: '$32.50' },
-    { id: 15, src: '/images/oder11.jpg', title: 'THE DUDE', price: '$11.99' },
   ];
   const [cartIds, setCartIds] = useState([]);
   const [quantities, setQuantities] = useState({});
@@ -180,8 +171,8 @@ function Order() {
         React.createElement('div', { className: 'grid_inner' },
           React.createElement('div', { className: 'grid-header-row' },
             React.createElement('div', { className: 'grid-inner-title' },
-              React.createElement('p', { className: 'order' }, 'Order'),
-              React.createElement('p', { className: 'order-text' }, 'Showing 1–12 of 15 results.com')
+              React.createElement('p', { className: 'order' }, 'Cocktails'),
+              React.createElement('p', { className: 'order-text' }, 'Showing all 6 results')
             ),
             React.createElement(
               'div',
@@ -387,85 +378,4 @@ function Order() {
   );
 }
 
-export default Order;
-
-
-
-
-// Backend Engineering Assignment – Digital Banking System
-
-// You have recently been employed as a Backend Engineer at a startup bank (the name will be assigned by NIBSS by Phoenix). As the sole backend engineer, you are responsible for designing and building the core backend system of the bank.
-
-// 🎯 Objective
-
-// Develop a functional backend system that supports:
-
-// Customer onboarding
-// Account management
-// Core banking operations
-
-// This system must integrate with the APIs provided by NibssByPhoenix.
-
-// 📌 Requirements
-// 1. Customer Onboarding System
-
-// Design and implement a complete onboarding workflow for bank customers.
-
-// Key Requirements:
-
-// Integrate with the BVN/NIN onboarding endpoints provided by NibssByPhoenix
-// (Note: No real BVN or NIN is allowed)
-
-// Ensure that:
-
-// A customer must be successfully verified using either BVN or NIN before onboarding is completed.
-// Account creation is only allowed after successful onboarding and verification.
-// 2. Account Creation
-
-// Create bank accounts for each successfully onboarded customer.
-
-// Rules:
-
-// Each customer must have a maximum of one (1) account.
-
-// Upon account creation:
-
-// Each account must be pre-funded with ₦15,000 to enable testing and transactions.
-// 3. Core Banking Operations
-
-// Ensure that customers can perform the following operations:
-
-// Name Enquiry
-// Verify recipient details before initiating a transfer.
-// Funds Transfer
-// Intra-bank transfers (within your bank)
-// Inter-bank transfers (to other banks)
-// Account Balance Check
-// Transaction Status Check
-// 🧪 Testing Note
-
-// You may perform transfers:
-
-// Between accounts you have created, or
-// To accounts created by your colleagues.
-// 4. Transaction History & Data Privacy
-
-// Implement transaction tracking and enforce strict data privacy.
-
-// Requirements:
-
-// Each customer must be able to:
-// View only their own transaction history
-// Ensure proper data isolation:
-// No customer should have access to another customer’s data.
-// 5. NibssByPhoenix API Integration
-
-// Use the provided API documentation from NibssByPhoenix.
-
-// Getting Started:
-
-// Call the onboarding endpoint and provide:
-// Your email address
-// Your company (bank) name
-// You will receive API credentials via email.
-// Use these credentials to authenticate and access other endpoints.
+export default productCategory;
