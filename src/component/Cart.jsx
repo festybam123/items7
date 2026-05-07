@@ -116,16 +116,15 @@ function Cart() {
       const data = await response.json();
       setOrderPlaced(true);
       setOrderId(data.orderId);
-      let message = 'Order placed successfully! Thank you for your order.';
+      let message = `Order placed successfully! Order ID: ${data.orderId}. Thank you for your order.`;
       if (paymentMethod === 'cash') {
-        message = 'Order placed successfully! Please have the exact cash ready for delivery.';
+        message = `Order placed successfully! Order ID: ${data.orderId}. Please have the exact cash ready for delivery.`;
       } else if (paymentMethod === 'check') {
-        message = 'Order placed successfully! Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.';
+        message = `Order placed successfully! Order ID: ${data.orderId}. Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.`;
       } else if (paymentMethod === 'paypal') {
-        message = 'Order placed successfully! You will be redirected to PayPal to complete your payment (integration required).';
+        message = `Order placed successfully! Order ID: ${data.orderId}. You will be redirected to PayPal to complete your payment (integration required).`;
       }
       alert(message);
-      // Optionally, clear cart or redirect user here
     } catch (err) {
       alert('There was an error placing your order. Please try again.');
     }
@@ -440,11 +439,19 @@ function Cart() {
         { className: 'checkout-order-summary' },
         React.createElement('h2', { className: 'order-summary-title' }, 'Your order'),
         
-        cartItems.length === 0 
-          ? React.createElement('p', null, 'Your cart is empty')
-          : React.createElement(
-              React.Fragment,
-              null,
+          cartItems.length === 0 
+            ? React.createElement('p', null, 'Your cart is empty')
+            : orderPlaced
+            ? React.createElement(
+                'div',
+                { className: 'order-success' },
+                React.createElement('h3', null, 'Order Confirmed!'),
+                orderId && React.createElement('p', null, `Order ID: ${orderId}`),
+                React.createElement('p', null, 'Thank you for your order.')
+              )
+            : React.createElement(
+                React.Fragment,
+                null,
               React.createElement(
                 'div',
                 { className: 'order-summary-items' },
