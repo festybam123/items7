@@ -74,7 +74,7 @@ function Contact() {
                },
                React.createElement(
                  Link,
-                 { to: '/templates', className: 'nav-link' },
+                 { to: '', className: 'nav-link' },
                  'TEMPLATES',
                  React.createElement('span', { className: 'dropdown-icon' }, '▼')
                ),
