@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/refs */
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import './productCategory.css';
+import './ProductCategory.css';
 
 function ProductCategory() {
   const [dropdownOpen, setDropdownOpen] = useState(null);
