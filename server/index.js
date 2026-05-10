@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import express from 'express';
+import cors from 'cors';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -101,15 +101,21 @@ app.get('/api/orders/:id', async (req, res) => {
   }
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// For Vercel serverless functions, export the app
+export default app;
 
-// Graceful shutdown
-process.on('SIGTERM', async () => {
-  if (mongoClient) {
-    await mongoClient.close();
-    console.log('MongoDB connection closed');
-  }
-  process.exit(0);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+
+  // Graceful shutdown
+  process.on('SIGTERM', async () => {
+    if (mongoClient) {
+      await mongoClient.close();
+      console.log('MongoDB connection closed');
+    }
+    process.exit(0);
+  });
+}
