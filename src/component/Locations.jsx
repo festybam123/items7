@@ -11,8 +11,8 @@ function Locations() {
     { id: 3, src: '/images/LCT4.jpg', title: 'LAKEWOOD RANSH', subtitle: '8764 E State Rd 70', price: 'Lakewood Ranch, FL 34202' },
 
   ];
-  const [cartIds, setCartIds] = useState([]);
-    const addToCart = (item) => {
+  const [_cartIds, setCartIds] = useState([]);
+    const _addToCart = (item) => {
       setCartIds(prev => prev.includes(item.id) ? prev : [...prev, item.id]);
     };
 
@@ -58,8 +58,7 @@ function Locations() {
           onMouseEnter: () => setTemplatesOpen(true),
           onMouseLeave: () => setTemplatesOpen(false),
         },
-        React.createElement
-        ('div', { className: 'nav-link' }, 
+        React.createElement('div', { className: 'nav-link' },
           'TEMPLATES', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
         templatesOpen &&
           React.createElement(

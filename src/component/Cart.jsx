@@ -125,7 +125,7 @@ function Cart() {
         message = `Order placed successfully! Order ID: ${data.orderId}. You will be redirected to PayPal to complete your payment (integration required).`;
       }
       alert(message);
-    } catch (err) {
+    } catch (_unusedErr) { // eslint-disable-line no-unused-vars
       alert('There was an error placing your order. Please try again.');
     }
   };

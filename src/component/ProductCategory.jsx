@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/refs */
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './productCategory.css';
 
-function productCategory() {
+function ProductCategory() {
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [dropdownDirection, setDropdownDirection] = useState(null);
   const dropdownRef = useRef(null);
   
   const handleMouseEnter = (menu) => {
@@ -18,22 +20,7 @@ function productCategory() {
     setDropdownOpen(dropdownOpen === 'default sorting' ? null : 'default sorting');
   };
   
-  // Calculate dropdown direction based on available space
-  const getDropdownPosition = () => {
-    if (!dropdownRef.current) return 'down';
-    
-    const rect = dropdownRef.current.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-    const spaceBelow = viewportHeight - rect.bottom;
-    const spaceAbove = rect.top;
-    
-    // If more space above and less than 200px below, open upward
-    if (spaceAbove > spaceBelow && spaceBelow < 200) {
-      return 'up';
-    }
-    // If more space below, open downward
-    return 'down';
-  };
+
      const popularItems = [
     { id: 1, src: '/images/oder12.jpg', title: 'BUFFALO BURGER', price: '$18.00' },
     { id: 2, src: '/images/oder1.jpg', title: 'CIRUS SANGRIA', price: '$9.50' },
@@ -111,7 +98,25 @@ function productCategory() {
     setCurrentPage(1);
   }, [keyword]);
 
-  const dropdownDirection = dropdownOpen === 'default sorting' ? getDropdownPosition() : null;
+  useEffect(() => {
+    if (dropdownOpen === 'default sorting') {
+      if (!dropdownRef.current) {
+        setDropdownDirection('down');
+        return;
+      }
+      const rect = dropdownRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const spaceBelow = viewportHeight - rect.bottom;
+      const spaceAbove = rect.top;
+      if (spaceAbove > spaceBelow && spaceBelow < 200) {
+        setDropdownDirection('up');
+      } else {
+        setDropdownDirection('down');
+      }
+    } else {
+      setDropdownDirection(null);
+    }
+  }, [dropdownOpen]);
   
   return React.createElement(
     'div',
@@ -378,4 +383,4 @@ function productCategory() {
   );
 }
 
-export default productCategory;
+export default ProductCategory;

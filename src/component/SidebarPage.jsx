@@ -12,7 +12,7 @@ function SidebarPage() {
 
     // Dummy cart/search state and handlers to prevent errors
     const [query, setQuery] = useState("");
-    const [keyword, setKeyword] = useState("");
+    const [_keyword, setKeyword] = useState("");
     const [cartIds, setCartIds] = useState([]);
     const [popularItems] = useState([
         { id: 1, src: '/images/pix8.jpg', title: 'DOUBLE DOGS', price: '$22.00' },

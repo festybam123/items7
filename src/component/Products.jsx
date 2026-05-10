@@ -10,7 +10,7 @@ function Products() {
 
     // Search state
     const [query, setQuery] = useState("");
-    const [keyword, setKeyword] = useState("");
+    const [_keyword, setKeyword] = useState("");
 
     // Cart state
     const [cartIds, setCartIds] = useState([]);

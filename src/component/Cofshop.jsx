@@ -9,10 +9,10 @@ function Cofshop() {
     const handleMouseLeave = () => setDropdownOpen(null);
 
     // Dummy cart/search state and handlers to prevent errors
-    const [query, setQuery] = useState("");
-    const [keyword, setKeyword] = useState("");
-    const [cartIds, setCartIds] = useState([]);
-    const [popularItems] = useState([
+    const [_query, _setQuery] = useState("");
+    const [_keyword, _setKeyword] = useState("");
+    const [_cartIds, _setCartIds] = useState([]);
+    const [_popularItems] = useState([
         { id: 1, src: '/images/pix8.jpg', title: 'DOUBLE DOGS', price: '$22.00' },
         { id: 2, src: '/images/pix9.jpg', title: 'MAHI AHI TACOS', price: '$18.50' },
         { id: 3, src: '/images/pix10.jpg', title: 'FRENSH TOAST', price: '$16.75' },

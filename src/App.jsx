@@ -1,6 +1,5 @@
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import Items7 from './component/Items7.jsx'
 import Locations from './component/Locations.jsx'
 import Menu from './component/Menu.jsx'

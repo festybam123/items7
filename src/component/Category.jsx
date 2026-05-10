@@ -4,19 +4,19 @@ import './Category.css';
 
 
 function Category() {
-    const navigate = useNavigate();
-    
-    // Dropdown state
-    const [dropdownOpen, setDropdownOpen] = useState(null);
-    const handleMouseEnter = (menu) => setDropdownOpen(menu);
-    const handleMouseLeave = () => setDropdownOpen(null);
+    const _navigate = useNavigate();
+    const [dropdownOpen, _setDropdownOpen] = useState(null);
 
-    // Show more/less state
-    const [showMore, setShowMore] = useState(false);
+    const handleMouseEnter = (menu) => {
+        _setDropdownOpen(menu);
+    };
 
-    // Dummy cart/search state and handlers to prevent errors
-    const [query, setQuery] = useState("");
-    const [keyword, setKeyword] = useState("");
+    const handleMouseLeave = () => {
+        _setDropdownOpen(null);
+    };
+    const [_query, setQuery] = useState("");
+    const [_showMore, _setShowMore] = useState(false);
+    const [_keyword, setKeyword] = useState("");
     const [cartIds, setCartIds] = useState([]);
     const [popularItems] = useState([
         { id: 1, src: '/images/pix8.jpg', title: 'DOUBLE DOGS', price: '$22.00' },
@@ -242,8 +242,8 @@ function Category() {
           'aside',
           { className: 'order-aside', style: { backgroundColor: 'rgba(255, 255, 255, 0.9)', borderRadius: '8px', padding: '16px' } },
           React.createElement('div', { className: 'search-container' },
-            React.createElement('input', { type: 'text', value: query, onChange: (e) => setQuery(e.target.value), placeholder: 'Search products...', className: 'order-search-input' }),
-            React.createElement('button', { onClick: () => setKeyword(query), className: 'order-search-button' }, 'Go')
+            React.createElement('input', { type: 'text', value: _query, onChange: (e) => setQuery(e.target.value), placeholder: 'Search products...', className: 'order-search-input' }),
+            React.createElement('button', { onClick: () => setKeyword(_query), className: 'order-search-button' }, 'Go')
           ),
           React.createElement(
             'div',
