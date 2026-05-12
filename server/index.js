@@ -10,19 +10,22 @@ app.use(express.json());
 
 // MongoDB connection - for serverless functions, connect on each request
 const inMemoryOrders = [];
+let mongoClient = null;
 
 const getOrdersCollection = async () => {
   try {
-    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/restaurant_db';
-    const mongoClient = new MongoClient(mongoUri, {
-      serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true
-      }
-    });
-    await mongoClient.connect();
-    console.log('Connected to MongoDB');
+    if (!mongoClient) {
+      const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/restaurant_db';
+      mongoClient = new MongoClient(mongoUri, {
+        serverApi: {
+          version: ServerApiVersion.v1,
+          strict: true,
+          deprecationErrors: true
+        }
+      });
+      await mongoClient.connect();
+      console.log('Connected to MongoDB');
+    }
 
     const db = mongoClient.db('restaurant_db');
     const ordersCollection = db.collection('orders');
