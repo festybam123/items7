@@ -2,11 +2,33 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import { MongoClient, ServerApiVersion } from 'mongodb';
+import Stripe from 'stripe';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
+const stripe = process.env.STRIPE_SECRET_KEY && process.env.STRIPE_SECRET_KEY !== 'sk_test_your_stripe_secret_key_here' ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
+
+app.post('/api/create-payment-intent', async (req, res) => {
+  if (!stripe) {
+    return res.status(500).json({ error: 'Stripe not configured. Please set a valid STRIPE_SECRET_KEY.' });
+  }
+  try {
+    const { amount } = req.body; // amount in cents
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount,
+      currency: 'usd',
+      payment_method_types: ['card'],
+    });
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // MongoDB connection - for serverless functions, connect on each request
 const inMemoryOrders = [];
