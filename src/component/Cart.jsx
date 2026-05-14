@@ -4,7 +4,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import './Cart.css';
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_test_51TWZIkIzE9uIhPZU8RqyFopak5ceDIeeeZ2UJ7u2L0f2c3WC7fnB5OZ0p7hJ7pfiYFK01dt9MUgk7FSN9ccjrpYd00DrIV1gfA');
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 function CartComponent() {
   const location = useLocation();
