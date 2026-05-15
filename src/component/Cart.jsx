@@ -112,6 +112,12 @@ function CartComponent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount: Math.round(total * 100) })
       });
+      if (!response.ok) {
+        let errMsg = 'Failed to initialize payment';
+        try { const d = await response.json(); errMsg = d.error || errMsg; } catch (_) { errMsg = `Server error (${response.status})`; }
+        setPaymentError(errMsg);
+        return;
+      }
       const data = await response.json();
       if (data.clientSecret) {
         setClientSecret(data.clientSecret);
@@ -171,10 +177,12 @@ function CartComponent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)
       });
-      const data = await response.json();
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit order');
+        let errMsg;
+        try { const d = await response.json(); errMsg = d.error || 'Failed to submit order'; } catch (_) { errMsg = `Server error (${response.status}): ${response.statusText}`; }
+        throw new Error(errMsg);
       }
+      const data = await response.json();
       setOrderPlaced(true);
       setOrderId(data.orderId);
       let message = `Order placed successfully! Order ID: ${data.orderId}. Thank you for your order.`;

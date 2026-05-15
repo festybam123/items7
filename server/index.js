@@ -3,6 +3,9 @@ import express from 'express';
 import cors from 'cors';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import Stripe from 'stripe';
+import dns from 'dns/promises';
+import net from 'net';
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -34,16 +37,79 @@ app.post('/api/create-payment-intent', async (req, res) => {
 const inMemoryOrders = [];
 let mongoClient = null;
 
+/**
+ * Given a mongodb+srv:// URI, resolve the SRV record and return a standard
+ * mongodb:// URI pointing at the resolved hosts. This prevents the raw
+ * Driver-level SRV lookup from crashing the process before our catch block.
+ */
+async function resolveSrvUri(uri) {
+  const m = uri.match(/^mongodb\+srv:\/\/([^/]+)\/(.+)$/);
+  if (!m) return uri;
+  const hostPart = m[1];
+  const slashIdx = hostPart.indexOf('@');
+  const atPart = hostPart.slice(slashIdx !== -1 ? slashIdx + 1 : 0);
+  const [hostport] = atPart.split(',');
+  const hostOnly = hostport.split(':')[0];
+  const dbName = m[2].split('?')[0];
+
+  let srv;
+  try {
+    srv = await dns.resolveSrv(`_mongodb._tcp.${hostOnly}`);
+  } catch (_) {
+    return uri;
+  }
+  if (!srv.length) return uri;
+  // Build standard connection string from resolved SRV answers
+  const hosts = srv
+    .filter(r => r.type === 'SRV')
+    .map(r => `${r.name}:${r.port}`)
+    .join(',');
+  const creds = slashIdx !== -1 ? hostPart.slice(0, slashIdx + 1) : '';
+  return `mongodb://${creds}${hosts}/${dbName}?replicaSet=${encodeURIComponent(hostOnly)}&retryWrites=true&w=majority`;
+}
+
+/**
+ * Quick TCP probe to confirm the resolved host is actually reachable
+ * before we hand the URI to the driver.
+ */
+async function hostIsReachable(uri) {
+  try {
+    const u = new URL(uri);
+    const target = u.hostname || u.host;
+    if (!target || target === 'localhost') return true;
+    const port = u.port ? parseInt(u.port) : 27017;
+    return await new Promise((resolve) => {
+      const s = net.createConnection({ host: target, port, timeout: 2000 }, () => resolve(true));
+      s.on('timeout', () => { s.destroy(); resolve(false); });
+      s.on('error', () => resolve(false));
+      s.on('close', () => resolve(false));
+    });
+  } catch {
+    return true;
+  }
+}
+
 const getOrdersCollection = async () => {
   try {
     if (!mongoClient) {
-      const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/restaurant_db';
+      let mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/restaurant_db';
+
+      if (mongoUri.startsWith('mongodb+srv://')) {
+        mongoUri = await resolveSrvUri(mongoUri);
+        if (!await hostIsReachable(mongoUri)) {
+          console.warn('MongoDB host unreachable, using in-memory storage');
+          return null;
+        }
+      }
+
       mongoClient = new MongoClient(mongoUri, {
         serverApi: {
           version: ServerApiVersion.v1,
           strict: true,
           deprecationErrors: true
-        }
+        },
+        serverSelectionTimeoutMS: 3000,
+        connectTimeoutMS: 3000,
       });
       await mongoClient.connect();
       console.log('Connected to MongoDB');
@@ -90,7 +156,7 @@ app.post('/api/orders', async (req, res) => {
     res.status(201).json({ message: 'Order received', orderId });
   } catch (err) {
     console.error('Error saving order:', err);
-    res.status(500).json({ error: 'Failed to save order' });
+    res.status(500).json({ error: (err && err.message) || 'Failed to save order' });
   }
 });
 
