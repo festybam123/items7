@@ -171,8 +171,10 @@ function CartComponent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)
       });
-      if (!response.ok) throw new Error('Failed to submit order');
       const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit order');
+      }
       setOrderPlaced(true);
       setOrderId(data.orderId);
       let message = `Order placed successfully! Order ID: ${data.orderId}. Thank you for your order.`;
@@ -188,8 +190,9 @@ function CartComponent() {
         message = `Order placed successfully! Order ID: ${data.orderId}. Please complete the bank transfer to confirm payment.`;
       }
       alert(message);
-    } catch (_unusedErr) { // eslint-disable-line no-unused-vars
-      alert('There was an error placing your order. Please try again.');
+    } catch (err) {
+      const errorMessage = err.message || 'There was an error placing your order. Please try again.';
+      alert(errorMessage);
     }
   };
   

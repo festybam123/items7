@@ -40,21 +40,22 @@ export default async function handler(req, res) {
     try {
       body = JSON.parse(req.body);
     } catch (e) {
-      return res.status(400).json({ error: 'Invalid JSON' });
+      console.error('Invalid JSON received:', req.body, '\nError:', e);
+      return res.status(400).json({ error: 'Invalid JSON', details: e.message, stack: e.stack });
     }
 
     try {
-      console.log('Received order request:', body);
+      console.log('Received order request:', JSON.stringify(body, null, 2));
       const order = body;
       if (!order || !order.items || !order.formData) {
-        console.error('Invalid order data:', order);
-        return res.status(400).json({ error: 'Invalid order data' });
+        console.error('Invalid order data:', JSON.stringify(order, null, 2));
+        return res.status(400).json({ error: 'Invalid order data', details: { order } });
       }
 
       // Generate unique orderId
       const orderId = Date.now() + Math.floor(Math.random() * 1000);
       const orderWithId = { ...order, orderId, createdAt: new Date() };
-      console.log('Order to save:', orderWithId);
+      console.log('Order to save:', JSON.stringify(orderWithId, null, 2));
 
       const ordersCollection = await getOrdersCollection();
       if (ordersCollection) {
@@ -69,7 +70,7 @@ export default async function handler(req, res) {
       res.status(201).json({ message: 'Order received', orderId });
     } catch (err) {
       console.error('Error saving order:', err);
-      res.status(500).json({ error: 'Failed to save order' });
+      res.status(500).json({ error: 'Failed to save order', details: err.message, stack: err.stack });
     }
   } else if (req.method === 'GET') {
     try {
