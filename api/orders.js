@@ -36,9 +36,16 @@ const getOrdersCollection = async () => {
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
+    let body;
     try {
-      console.log('Received order request:', req.body);
-      const order = req.body;
+      body = JSON.parse(req.body);
+    } catch (e) {
+      return res.status(400).json({ error: 'Invalid JSON' });
+    }
+
+    try {
+      console.log('Received order request:', body);
+      const order = body;
       if (!order || !order.items || !order.formData) {
         console.error('Invalid order data:', order);
         return res.status(400).json({ error: 'Invalid order data' });
