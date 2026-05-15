@@ -9,19 +9,12 @@ export default async function handler(req, res) {
     return res.status(405).end('Method Not Allowed');
   }
 
-  let body;
-  try {
-    body = JSON.parse(req.body);
-  } catch (e) {
-    return res.status(400).json({ error: 'Invalid JSON' });
-  }
-
   if (!stripe) {
     return res.status(500).json({ error: 'Stripe not configured. Please set a valid STRIPE_SECRET_KEY.' });
   }
 
   try {
-    const { amount } = body; // amount in cents
+    const { amount } = req.body; // amount in cents
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       currency: 'usd',
