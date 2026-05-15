@@ -5,5 +5,4 @@
       "destination": "/api/:path*"
     }
   ]
-}</content>
-<parameter name="filePath">vercel.json
+}
