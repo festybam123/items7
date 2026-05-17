@@ -231,10 +231,10 @@
 /* Pagination Styles */
 .news-pagination {
   text-align: center;
-  max-width: 65%;
+  max-width: 70%;
   padding: 20px 32px;
   background: #fff;
-  margin: 10px;
+  margin: 20px 0 20px 0;
 }
 
 .pagination-link {

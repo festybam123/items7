@@ -326,10 +326,10 @@ React.createElement('div', { className: 'review-related-products' },
                     React.createElement('li', null, React.createElement('strong', null, 'Saturday'), ' — 11:00 am – 1:00 am'),
                     React.createElement('li', null, React.createElement('strong', null, 'Sunday'), ' — 11:00 am – 1:00 am')
                 ),
-                React.createElement('div', { className: 'aside-buttons' },
-                    React.createElement(Link, { to: '/reservations', className: 'aside-btn' }, 'RESERVATIONS'),
-                    React.createElement(Link, { to: '/order', className: 'aside-btn' }, 'ORDER ONLINE')
-                ),
+                // React.createElement('div', { className: 'aside-buttons' },
+                //     React.createElement(Link, { to: '/reservations', className: 'aside-btn' }, 'RESERVATIONS'),
+                //     React.createElement(Link, { to: '/order', className: 'aside-btn' }, 'ORDER ONLINE')
+                // ),
             )
         ),
         

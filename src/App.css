@@ -193,7 +193,7 @@ body {
   animation: none;
   height: 455%; 
   background-color: transparent;
-  margin-bottom: 0;
+  margin-bottom:px;
 }
 
 
@@ -575,10 +575,7 @@ body {
 
 .oder_btn {
   display: inline-block;
-  margin-top: 2.5rem;
-  width: 30%;
-  height: 25px;
-  padding: 12px 24px;
+  padding: 10px 20px;
   font-weight: 700;
   font-size: x-large;
   color: #fff;
@@ -616,7 +613,7 @@ body {
   gap: 2rem;
   margin: 3rem auto 0;
   padding: 2rem 2rem 0 2rem; /* remove bottom padding to eliminate page-end space */
-  width: 90%;
+  width: 95%;
   height: 100%;
   max-width: 1200px;
   background: #ffffff;
@@ -693,7 +690,7 @@ body {
   gap: 2rem;
   margin: 3rem auto 3rem; /* Equal margins to center spacer2 */
   padding: 1rem 2rem 1rem 2rem; /* Equal padding for balance */
-  width: 92%;
+  width: 95%;
   max-width: 1200px;
   background: #8EB04A;
   border-radius: 12px;
@@ -761,7 +758,7 @@ body {
   font-family: 'Arial, Helvetica, sans-serif';
   font-size: large;
   padding: 2rem 0;
-  margin-top: 20px; /* Set margin-top to 0 */
+  margin-top: 0px; /* Set margin-top to 0 */
   position: relative;
   bottom: 0;
   width: 100%;

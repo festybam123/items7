@@ -38,6 +38,10 @@ h5.news-divider {
 .news-section2 {
   margin-bottom: 0;
   padding-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 /* Author section - image, name, date */
@@ -210,6 +214,22 @@ h5.news-divider{
   cursor: pointer;
 }
 
+.news-image-link2 img{
+  height: 90vh;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  margin-bottom: 0;
+}
+
+.news-image-link2 {
+  display: block;
+  width: 100%;
+  height: 90vh;
+  cursor: pointer;
+  overflow: hidden;
+}
+
 /* Specific styling for NewsIMG3 to make it fit perfectly */
 .news-image-link3 img{
   height: 95vh;
@@ -253,10 +273,17 @@ img[src*="NewsIMG3"]:hover {
 
 .news-main-image2 {
   display: block;
-  width: 130vh;
-  height: 100%;
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
   cursor: pointer;
   margin-bottom: 0;
+}
+
+.news-image-link2:hover .news-main-image2,
+.news-image-link2:active .news-main-image2 {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 .news-image-link:hover .news-main-image,
