@@ -84,6 +84,7 @@
   max-width: 70%;
   padding: 32px;
   box-sizing: border-box;
+  margin-bottom: 30px;
 }
 
 .history-bottom-content p{

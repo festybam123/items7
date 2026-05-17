@@ -87,7 +87,6 @@
 /* Popular items grid */
 .order_grid {
   background: #ffffff;
-  width: 70%;
   position: relative;
   border-radius: 12px;
   margin-top: 0;
@@ -124,7 +123,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  margin-left: 65px;
+  margin-left: 40px;
 }
 
 .nav-order {
@@ -135,7 +134,7 @@
   margin-left: 10px;
   text-decoration: none;
   color: #000000e5;
-  padding: 10px 16px;
+  padding: 10px;
   background: #fff;
   border-radius: 6px;
   border: 2px solid #8EB04A;
@@ -143,9 +142,6 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 160px;
-  width: 20%;
-  height: 20%;
 }
 
 .nav-order .dropdown-order {
@@ -192,21 +188,18 @@
   border: 1px solid gray;
 }
 
-.dropdown-order-link {
+/* .dropdown-order-link {
   display: block;
-  padding: 5px 10px;
   text-decoration: none;
   color: #333;
   box-sizing: border-box;
-  font-size: 1.2rem;
   transition: all 0.15s ease;
 }
 
 .dropdown-order-link:hover {
-  background: #0000ffb2;
   color: #ffffffa6;
   padding-left: 20px;
-}
+} */
 
 /* Image grid */
 .img_grid {
@@ -333,52 +326,37 @@
 }
 
 .search-container {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
+   display: flex;
+   margin-bottom: 16px;
    padding: 25px;
 }
 
-.order_aside{
-         margin: 0;
-          padding: 20px 20px 0 0;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: flex-start;
-          position: relative;
-          background: rgb(255,255,255);
-          border-radius: 8px;
-          backdrop-filter: blur(2px);
-}
-
 .order-search-input {
-  flex: 1;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: #ccccccb9;
-  font-size: 1rem;
-  height: 35px;
-
+   flex: 1;
+   padding: 8px;
+   border-radius: 4px 0 0 4px;
+   border: 1px solid #ccc;
+   background-color: #ccccccb9;
+   font-size: 1rem;
+   height: 35px;
 }
 
 .order-search-input:focus {
-  outline: none;
-  border-color: #8EB04A;
+   outline: none;
+   border-color: #8EB04A;
 }
 
 .order-search-button {
-  padding: 8px;
-  cursor: pointer;
-  border-radius: 4px;
-  border: 1px solid gray;
-  color: #fff;
-  background-color: #8EB04A;
-  font-weight: 500;
-  margin: 0%;
-  transition: all 0.2s ease;
-  height: 50px;
+   padding: 0 16px;
+   cursor: pointer;
+   border-radius: 0 4px 4px 0;
+   border: 1px solid gray;
+   color: #fff;
+   font-size: 1rem;
+   font-weight: bold;
+   height: 35px;
+   background-color: #8EB04A;
+   transition: all 0.2s ease;
 }
 
 /* Cart container */
@@ -906,9 +884,7 @@
   }
   
   .nav-order {
-    width: 100%;
-    min-width: auto;
-    padding: 8px 12px;
+    padding: 5px 5px;
     font-size: 1rem;
   }
   

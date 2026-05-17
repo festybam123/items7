@@ -114,7 +114,7 @@ function CartComponent() {
       });
       if (!response.ok) {
         let errMsg = 'Failed to initialize payment';
-        try { const d = await response.json(); errMsg = d.error || errMsg; } catch (_) { errMsg = `Server error (${response.status})`; }
+        try { const d = await response.json(); errMsg = d.error || errMsg; } catch { errMsg = `Server error (${response.status})`; }
         setPaymentError(errMsg);
         return;
       }
@@ -179,7 +179,7 @@ function CartComponent() {
       });
       if (!response.ok) {
         let errMsg;
-        try { const d = await response.json(); errMsg = d.error || 'Failed to submit order'; } catch (_) { errMsg = `Server error (${response.status}): ${response.statusText}`; }
+        try { const d = await response.json(); errMsg = d.error || 'Failed to submit order'; } catch { errMsg = `Server error (${response.status}): ${response.statusText}`; }
         throw new Error(errMsg);
       }
       const data = await response.json();

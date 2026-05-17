@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   let body;
   try {
     body = JSON.parse(req.body);
-  } catch (e) {
+  } catch {
     return res.status(400).json({ error: 'Invalid JSON' });
   }
 
