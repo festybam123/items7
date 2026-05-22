@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Menu.css';
 
 function Menu() {
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = location.hash || window.location.hash;
+    if (hash) {
+      const element = document.getElementById(hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   const handleMouseEnter = (menu) => {
     setDropdownOpen(menu);
@@ -79,7 +92,7 @@ function Menu() {
     React.createElement('button', { className: 'btn_1', onClick: () => document.getElementById('breakfast').scrollIntoView({ behavior: 'smooth' }) }, 'BREAKFAST'),
     React.createElement('button', { className: 'btn_1', onClick: () => document.getElementById('lunch').scrollIntoView({ behavior: 'smooth' }) }, 'LUNCH'),
     React.createElement('button', { className: 'btn_1', onClick: () => document.getElementById('dinner').scrollIntoView({ behavior: 'smooth' }) }, 'DINNER'),
-    React.createElement('button', { className: 'btn_1', onClick: () => document.getElementById('deserts').scrollIntoView({ behavior: 'smooth' }) }, 'DESERTS'),
+    React.createElement('button', { className: 'btn_1', onClick: () => document.getElementById('desserts').scrollIntoView({ behavior: 'smooth' }) }, 'DESSERTS'),
     React.createElement('button', { className: 'btn_1', onClick: () => document.getElementById('cocktails').scrollIntoView({ behavior: 'smooth' }) }, 'COCKTAILS'),
     React.createElement('button', { className: 'btn_1', onClick: () => document.getElementById('happy-hour').scrollIntoView({ behavior: 'smooth' }) }, 'HAPPY HOUR')
    ),
@@ -200,8 +213,8 @@ function Menu() {
       )
     ),
 
-    React.createElement('div', { className: 'menu-section', id: 'deserts' },
-      React.createElement('h2', { className: 'menu-title' }, 'DESERTS'),
+    React.createElement('div', { className: 'menu-section', id: 'desserts' },
+      React.createElement('h2', { className: 'menu-title' }, 'DESSERTS'),
       React.createElement('ul', { className: 'menu-items' },
         React.createElement('li', { className: 'menu-item' },
           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),

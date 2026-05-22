@@ -58,42 +58,61 @@ function Items7() {
           React.createElement('img', { src: '/images/pix2.jpeg', alt: 'Image 1' }),
           React.createElement('div', { className: 'image-overlay' },
             React.createElement('div', { className: 'image-text1' }, 'Dinner'),
-            React.createElement(Link, { to: '/menu', className: 'image-button1' }, 'VIEW MENU')
+            React.createElement(Link, {
+              to: '/menu#dinner',
+              className: 'image-button1'
+            }, 'VIEW MENU')
           )
         ),
+
         React.createElement('div', { className: 'flex-image flex-image2' },
           React.createElement('img', { src: '/images/pix3.jfif', alt: 'Image 2' }),
           React.createElement('div', { className: 'image-overlay' },
             React.createElement('div', { className: 'image-text2' }, 'Lunch'),
-            React.createElement(Link, { to: '/menu', className: 'image-button2' }, 'VIEW MENU')
+            React.createElement(Link, {
+              to: '/menu#lunch',
+              className: 'image-button2'
+            }, 'VIEW MENU')
           )
         ),
         React.createElement('div', { className: 'flex-image flex-image3' },
           React.createElement('img', { src: '/images/pix4.avif', alt: 'Image 3' }),
           React.createElement('div', { className: 'image-overlay' },
             React.createElement('div', { className: 'image-text3' }, 'Appetizers'),
-            React.createElement(Link, { to: '/menu', className: 'image-button3' }, 'VIEW MENU')
+            React.createElement(Link, {
+              to: '/menu#appetizers',
+              className: 'image-button3'
+            }, 'VIEW MENU')
           )
         ),
         React.createElement('div', { className: 'flex-image flex-image3' },  
           React.createElement('img', { src: '/images/pix5.webp', alt: 'Image 4' }),
           React.createElement('div', { className: 'image-overlay' },
             React.createElement('div', { className: 'image-text3' }, 'Breakfast'),
-            React.createElement(Link, { to: '/menu', className: 'image-button3' }, 'VIEW MENU')
+            React.createElement(Link, {
+              to: '/menu#breakfast',
+              className: 'image-button3'
+            }, 'VIEW MENU')
           )
         ),
         React.createElement('div', { className: 'flex-image flex-image4' },
           React.createElement('img', { src: '/images/pix6.avif', alt: 'Image 5' }),
           React.createElement('div', { className: 'image-overlay' },
             React.createElement('div', { className: 'image-text4' }, 'Desserts'),
-            React.createElement(Link, { to: '/menu', className: 'image-button4' }, 'VIEW MENU')
+            React.createElement(Link, {
+              to: '/menu#desserts',
+              className: 'image-button4'
+            }, 'VIEW MENU')
           )
         ),
         React.createElement('div', { className: 'flex-image flex-image5' },
           React.createElement('img', { src: '/images/pix13.jpg', alt: 'Image 6' }),
           React.createElement('div', { className: 'image-overlay' },
             React.createElement('div', { className: 'image-text5' }, 'Cocktails'),
-            React.createElement(Link, { to: '/menu', className: 'image-button5' }, 'VIEW MENU')
+            React.createElement(Link, {
+              to: '/menu#cocktails',
+              className: 'image-button5'
+            }, 'VIEW MENU')
           )
         ),
 
@@ -197,7 +216,6 @@ function Items7() {
         )
       )
     )
-    
   );
 }
 
