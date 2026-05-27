@@ -14,6 +14,7 @@
   position: relative;
   width: 70%;
   min-height: 100vh;
+  margin: 0;
 }
 
 /* News bottom content styles */
@@ -208,18 +209,29 @@ h5.news-divider{
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 25px;
+  margin-top: 20px;
+  margin-bottom: 0;
   flex: 1 1 0;
   min-width: 0;
   z-index: 1;
 }
 
+/* .news-image-link img{
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  margin-bottom: 0;
+}
+
 .news-image-link {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   cursor: pointer;
-}
+  overflow: hidden;
+} */
+
 
 /* Specific styling for NewsIMG3 to make it fit perfectly */
 .news-image-link3 img{
@@ -292,6 +304,12 @@ img[src*="NewsIMG3"]:hover {
 .news-bottom-content img:active {
   transform: scale(2);
   filter: brightness(1.1);
+}
+
+.news-author-image:hover,
+.news-author-image:active {
+  transform: none !important;
+  filter: none !important;
 }
 
 /* Order aside */

@@ -109,7 +109,7 @@ function News() {
           { className: 'news-section' },
           React.createElement(
             'a',
-            { href: '/news/full', className: 'news-image-link' },
+            { href: '/news/full', className: 'news-image-link0' },
             React.createElement('img', { src: '/images/NewsIMG1.jpg', alt: 'News', className: 'news-main-image' })
           )
         )
@@ -117,7 +117,7 @@ function News() {
           React.createElement(
             'div',
             { className: 'news-bottom-content' },
-            React.createElement('img', { src: '/public/images/image radius.jpeg', alt: 'David Morgan', className: 'news-author-image' }),
+            React.createElement('img', { src: '/images/image-radius.jpeg', alt: 'David Morgan', className: 'news-author-image' }),
             React.createElement(
               'div',
               { className: 'news-author-info' },
