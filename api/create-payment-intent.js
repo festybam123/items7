@@ -11,9 +11,19 @@ export default async function handler(req, res) {
 
   let body;
   try {
-    body = JSON.parse(req.body);
-  } catch {
-    return res.status(400).json({ error: 'Invalid JSON' });
+    // For Vercel serverless, handle both string body and parsed body
+    if (typeof req.body === 'string') {
+      body = JSON.parse(req.body);
+    } else if (Buffer.isBuffer(req.body)) {
+      body = JSON.parse(req.body.toString());
+    } else if (typeof req.body === 'object') {
+      body = req.body;
+    } else {
+      return res.status(400).json({ error: 'Invalid request body format' });
+    }
+  } catch (e) {
+    console.error('Failed to parse body:', e.message);
+    return res.status(400).json({ error: 'Invalid JSON', details: e.message });
   }
 
   if (!stripe) {
