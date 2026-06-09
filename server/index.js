@@ -3,13 +3,15 @@ import express from 'express';
 import cors from 'cors';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import Stripe from 'stripe';
-import dns from 'dns/promises';
-import net from 'net';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS
+/**
+ * =========================
+ * MIDDLEWARE
+ * =========================
+ */
 app.use(cors({
   origin: [
     process.env.CORS_ORIGIN || 'http://localhost:5173',
@@ -21,17 +23,39 @@ app.use(cors({
 
 app.use(express.json());
 
-// Stripe
+/**
+ * =========================
+ * HEALTH CHECK (IMPORTANT)
+ * =========================
+ */
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    message: 'Server is running 🚀',
+    time: new Date().toISOString()
+  });
+});
+
+app.get('/', (req, res) => {
+  res.send('API is running 🚀');
+});
+
+/**
+ * =========================
+ * STRIPE
+ * =========================
+ */
 const stripe =
   process.env.STRIPE_SECRET_KEY &&
   process.env.STRIPE_SECRET_KEY !== 'sk_test_your_stripe_secret_key_here'
     ? new Stripe(process.env.STRIPE_SECRET_KEY)
     : null;
 
-// Payment route
 app.post('/api/create-payment-intent', async (req, res) => {
   if (!stripe) {
-    return res.status(500).json({ error: 'Stripe not configured' });
+    return res.status(500).json({
+      error: 'Stripe not configured properly'
+    });
   }
 
   try {
@@ -43,25 +67,30 @@ app.post('/api/create-payment-intent', async (req, res) => {
       payment_method_types: ['card'],
     });
 
-    res.json({ clientSecret: paymentIntent.client_secret });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
-// MongoDB fallback
-const inMemoryOrders = [];
+/**
+ * =========================
+ * MONGODB
+ * =========================
+ */
 let mongoClient = null;
+const inMemoryOrders = [];
 
-// Mongo connection
 const getOrdersCollection = async () => {
   try {
     if (!mongoClient) {
-      const mongoUri =
+      const uri =
         process.env.MONGODB_URI ||
         'mongodb://localhost:27017/restaurant_db';
 
-      mongoClient = new MongoClient(mongoUri, {
+      mongoClient = new MongoClient(uri, {
         serverApi: {
           version: ServerApiVersion.v1,
           strict: true,
@@ -70,15 +99,21 @@ const getOrdersCollection = async () => {
       });
 
       await mongoClient.connect();
-      console.log('Connected to MongoDB');
+      console.log('✅ Connected to MongoDB');
     }
 
     return mongoClient.db('restaurant_db').collection('orders');
   } catch (err) {
-    console.log('MongoDB failed, using memory storage');
+    console.log('⚠️ MongoDB failed, using memory storage');
     return null;
   }
 };
+
+/**
+ * =========================
+ * ORDERS ROUTES
+ * =========================
+ */
 
 // Create order
 app.post('/api/orders', async (req, res) => {
@@ -86,12 +121,12 @@ app.post('/api/orders', async (req, res) => {
     const order = req.body;
 
     if (!order?.items || !order?.formData) {
-      return res.status(400).json({ error: 'Invalid order' });
+      return res.status(400).json({ error: 'Invalid order data' });
     }
 
     const orderId = Date.now();
 
-    const fullOrder = {
+    const newOrder = {
       ...order,
       orderId,
       createdAt: new Date(),
@@ -100,12 +135,15 @@ app.post('/api/orders', async (req, res) => {
     const collection = await getOrdersCollection();
 
     if (collection) {
-      await collection.insertOne(fullOrder);
+      await collection.insertOne(newOrder);
     } else {
-      inMemoryOrders.push(fullOrder);
+      inMemoryOrders.push(newOrder);
     }
 
-    res.status(201).json({ message: 'Order saved', orderId });
+    res.status(201).json({
+      message: 'Order saved successfully',
+      orderId,
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -140,14 +178,17 @@ app.get('/api/orders/:id', async (req, res) => {
     }
 
     const order = inMemoryOrders.find(o => o.orderId === id);
-    res.json(order);
+    res.json(order || null);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
 /**
+ * =========================
+ * START SERVER (RENDER FIX)
+ * =========================
  */
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
