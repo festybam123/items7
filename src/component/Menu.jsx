@@ -102,26 +102,26 @@ function Menu() {
       React.createElement('ul', { className: 'menu-items' },
 
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br', ), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br', ), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
          React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
       )
@@ -130,26 +130,26 @@ function Menu() {
       React.createElement('h2', { className: 'menu-title' }, 'BREAKFAST'),
       React.createElement('ul', { className: 'menu-items' },
        React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br', ), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br', ), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
          React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
          ),
       )
@@ -159,17 +159,17 @@ function Menu() {
       React.createElement('h2', { className: 'menu-title' }, 'LUNCH'),
       React.createElement('ul', { className: 'menu-items' },
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
@@ -188,26 +188,26 @@ function Menu() {
       React.createElement('h2', { className: 'menu-title' }, 'DINNER'),
       React.createElement('ul', { className: 'menu-items' },
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
          React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
          ),
       )
@@ -217,26 +217,26 @@ function Menu() {
       React.createElement('h2', { className: 'menu-title' }, 'DESSERTS'),
       React.createElement('ul', { className: 'menu-items' },
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
 
         React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
          React.createElement('li', { className: 'menu-item' },
-           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+           React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
           React.createElement('span', { className: 'item-price' }, '$19.99')
          ),
       )
@@ -246,26 +246,26 @@ function Menu() {
      React.createElement('h2', { className: 'menu-title' }, 'COCKTAILS'),
      React.createElement('ul', { className: 'menu-items' },
        React.createElement('li', { className: 'menu-item' },
-         React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+         React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
        ),
 
        React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
        ),
 
        React.createElement('li', { className: 'menu-item' },
-         React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+         React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
        ),
 
        React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
        ),
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
      )
@@ -275,26 +275,26 @@ function Menu() {
      React.createElement('h2', { className: 'menu-title' }, 'HAPPY HOUR'),
      React.createElement('ul', { className: 'menu-items' },
        React.createElement('li', { className: 'menu-item' },
-         React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+         React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item one ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
        ),
 
        React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item two ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
        ),
 
        React.createElement('li', { className: 'menu-item' },
-         React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+         React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Three ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
        ),
 
        React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Four ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
        ),
         React.createElement('li', { className: 'menu-item' },
-          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This an example menu description')),
+          React.createElement('span', { className: 'item-name menu-item-number' }, 'Menu Item Five ', React.createElement('br',), React.createElement('span', { className: 'menu-item-description' }, 'This is an example menu description')),
          React.createElement('span', { className: 'item-price' }, '$19.99')
         ),
      )

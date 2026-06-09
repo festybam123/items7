@@ -1,37 +1,41 @@
-import 'dotenv/config';
 import Stripe from 'stripe';
 
-const stripe = process.env.STRIPE_SECRET_KEY && process.env.STRIPE_SECRET_KEY !== 'your_stripe_secret_key_here' ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripe = stripeSecretKey && !stripeSecretKey.includes('your_stripe') ? new Stripe(stripeSecretKey) : null;
+
+const parseBody = (req) => {
+  return new Promise((resolve, reject) => {
+    if (typeof req.body === 'object' && req.body !== null) {
+      resolve(req.body);
+      return;
+    }
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        resolve(body ? JSON.parse(body) : {});
+      } catch (e) {
+        reject(e);
+      }
+    });
+    req.on('error', reject);
+  });
+};
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).end('Method Not Allowed');
-  }
-
-  let body;
   try {
-    // For Vercel serverless, handle both string body and parsed body
-    if (typeof req.body === 'string') {
-      body = JSON.parse(req.body);
-    } else if (Buffer.isBuffer(req.body)) {
-      body = JSON.parse(req.body.toString());
-    } else if (typeof req.body === 'object') {
-      body = req.body;
-    } else {
-      return res.status(400).json({ error: 'Invalid request body format' });
+    if (req.method !== 'POST') {
+      res.setHeader('Allow', 'POST');
+      return res.status(405).end('Method Not Allowed');
     }
-  } catch (e) {
-    console.error('Failed to parse body:', e.message);
-    return res.status(400).json({ error: 'Invalid JSON', details: e.message });
-  }
 
-  if (!stripe) {
-    return res.status(500).json({ error: 'Stripe not configured. Please set a valid STRIPE_SECRET_KEY.' });
-  }
+    const body = await parseBody(req);
+    const { amount } = body;
 
-  try {
-    const { amount } = body; // amount in cents
+    if (!stripe) {
+      return res.status(500).json({ error: 'Stripe not configured. Please set a valid STRIPE_SECRET_KEY.' });
+    }
+
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       currency: 'usd',
@@ -41,6 +45,7 @@ export default async function handler(req, res) {
       clientSecret: paymentIntent.client_secret,
     });
   } catch (error) {
+    console.error('Payment intent error:', error);
     res.status(500).json({ error: error.message });
   }
 }

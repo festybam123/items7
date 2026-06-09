@@ -20,9 +20,9 @@ function Items7() {
         React.createElement(Link, { to: '/', className: 'nav-link1' }, '🍽️RESTAURANT'),
         React.createElement(Link, { to: '/locations', className: 'nav-link' }, 'LOCATIONS'),
         React.createElement(Link, { to: '/menu', className: 'nav-link' }, 'MENU'),
-        React.createElement('div', { className: 'nav-item', onMouseEnter: () => setAboutOpen(true), onMouseLeave: () => setAboutOpen(false) },
+        React.createElement('div', { className: 'nav-item', onMouseEnter: () => setAboutOpen(true), onMouseLeave: () => setAboutOpen(true) },
           React.createElement(Link, { to: '/about', className: 'nav-link' }, 'ABOUT', React.createElement('span', { className: 'dropdown-icon' }, '▼')),
-          aboutOpen && React.createElement('div', { className: 'dropdown', onMouseEnter: () => setAboutOpen(true), onMouseLeave: () => setAboutOpen(false) },
+          aboutOpen && React.createElement('div', { className: 'dropdown', onMouseEnter: () => setAboutOpen(true), onMouseLeave: () => setAboutOpen(true) },
             React.createElement(Link, { to: '/history', className: 'dropdown-link' }, 'History'),
             React.createElement(Link, { to: '/news', className: 'dropdown-link' }, 'News'),
             React.createElement(Link, { to: '/contact', className: 'dropdown-link' }, 'Contact')

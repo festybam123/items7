@@ -6,11 +6,20 @@ import Stripe from 'stripe';
 import dns from 'dns/promises';
 import net from 'net';
 
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// app.use(cors())
+
+
+app.use(cors({
+  origin: [process.env.CORS_ORIGIN || 'http://localhost:5173', 'https://items7-98zr.vercel.app/'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(express.json());
+
 
 const stripe = process.env.STRIPE_SECRET_KEY && process.env.STRIPE_SECRET_KEY !== 'sk_test_your_stripe_secret_key_here' ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
 
