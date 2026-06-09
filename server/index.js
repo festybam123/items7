@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
  */
 app.use(cors({
   origin: [
-    process.env.CORS_ORIGIN || 'http://localhost:5173',
+    process.env.CORS_ORIGIN,
     'https://items7-98zr.vercel.app'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -25,39 +25,28 @@ app.use(express.json());
 
 /**
  * =========================
- * HEALTH CHECK (IMPORTANT)
+ * HEALTH CHECK
  * =========================
  */
+app.get('/', (req, res) => {
+  res.send('API RUNNING 🚀');
+});
+
 app.get('/health', (req, res) => {
-  res.status(200).json({
+  res.json({
     status: 'ok',
-    message: 'Server is running 🚀',
     time: new Date().toISOString()
   });
 });
 
-app.get('/', (req, res) => {
-  res.send('API is running 🚀');
-});
-
 /**
  * =========================
- * STRIPE
+ * STRIPE SETUP
  * =========================
  */
-const stripe =
-  process.env.STRIPE_SECRET_KEY &&
-  process.env.STRIPE_SECRET_KEY !== 'sk_test_your_stripe_secret_key_here'
-    ? new Stripe(process.env.STRIPE_SECRET_KEY)
-    : null;
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 app.post('/api/create-payment-intent', async (req, res) => {
-  if (!stripe) {
-    return res.status(500).json({
-      error: 'Stripe not configured properly'
-    });
-  }
-
   try {
     const { amount } = req.body;
 
@@ -77,37 +66,34 @@ app.post('/api/create-payment-intent', async (req, res) => {
 
 /**
  * =========================
- * MONGODB
+ * MONGODB SETUP
  * =========================
  */
-let mongoClient = null;
-const inMemoryOrders = [];
+const client = new MongoClient(process.env.MONGODB_URL, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
 
-const getOrdersCollection = async () => {
+let ordersCollection;
+
+/**
+ * CONNECT DB ON START
+ */
+async function connectDB() {
   try {
-    if (!mongoClient) {
-      const uri =
-        process.env.MONGODB_URL ||
-        'mongodb://localhost:27017/restaurant_db';
-
-      mongoClient = new MongoClient(uri, {
-        serverApi: {
-          version: ServerApiVersion.v1,
-          strict: true,
-          deprecationErrors: true,
-        },
-      });
-
-      await mongoClient.connect();
-      console.log('✅ Connected to MongoDB');
-    }
-
-    return mongoClient.db('restaurant_db').collection('orders');
+    await client.connect();
+    const db = client.db('restaurant_db');
+    ordersCollection = db.collection('orders');
+    console.log('✅ MongoDB connected');
   } catch (err) {
-    console.log('⚠️ MongoDB failed, using memory storage');
-    return null;
+    console.error('❌ MongoDB connection failed', err);
   }
-};
+}
+
+connectDB();
 
 /**
  * =========================
@@ -124,25 +110,17 @@ app.post('/api/orders', async (req, res) => {
       return res.status(400).json({ error: 'Invalid order data' });
     }
 
-    const orderId = Date.now();
-
     const newOrder = {
       ...order,
-      orderId,
+      orderId: Date.now(),
       createdAt: new Date(),
     };
 
-    const collection = await getOrdersCollection();
-
-    if (collection) {
-      await collection.insertOne(newOrder);
-    } else {
-      inMemoryOrders.push(newOrder);
-    }
+    await ordersCollection.insertOne(newOrder);
 
     res.status(201).json({
-      message: 'Order saved successfully',
-      orderId,
+      message: 'Order created',
+      orderId: newOrder.orderId,
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -152,14 +130,8 @@ app.post('/api/orders', async (req, res) => {
 // Get all orders
 app.get('/api/orders', async (req, res) => {
   try {
-    const collection = await getOrdersCollection();
-
-    if (collection) {
-      const orders = await collection.find().toArray();
-      return res.json(orders);
-    }
-
-    res.json(inMemoryOrders);
+    const orders = await ordersCollection.find().toArray();
+    res.json(orders);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -170,15 +142,9 @@ app.get('/api/orders/:id', async (req, res) => {
   try {
     const id = Number(req.params.id);
 
-    const collection = await getOrdersCollection();
+    const order = await ordersCollection.findOne({ orderId: id });
 
-    if (collection) {
-      const order = await collection.findOne({ orderId: id });
-      return res.json(order);
-    }
-
-    const order = inMemoryOrders.find(o => o.orderId === id);
-    res.json(order || null);
+    res.json(order);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -186,7 +152,7 @@ app.get('/api/orders/:id', async (req, res) => {
 
 /**
  * =========================
- * START SERVER (RENDER FIX)
+ * START SERVER
  * =========================
  */
 app.listen(PORT, '0.0.0.0', () => {
