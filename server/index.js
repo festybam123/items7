@@ -87,7 +87,7 @@ const getOrdersCollection = async () => {
   try {
     if (!mongoClient) {
       const uri =
-        process.env.MONGODB_URI ||
+        process.env.MONGODB_URL ||
         'mongodb://localhost:27017/restaurant_db';
 
       mongoClient = new MongoClient(uri, {
