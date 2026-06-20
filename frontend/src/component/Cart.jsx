@@ -107,7 +107,8 @@ function CartComponent() {
 
   const createPaymentIntent = useCallback(async () => {
     try {
-      const response = await fetch('/api/create-payment-intent', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/create-payment-intent`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount: Math.round(total * 100) })
@@ -172,7 +173,8 @@ function CartComponent() {
     };
 
     try {
-      const response = await fetch('/api/orders', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)

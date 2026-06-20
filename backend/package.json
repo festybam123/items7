@@ -8,6 +8,7 @@
     "node": "24.x"
   },
   "scripts": {
+    "build": "echo 'Backend built'",
     "start": "node server/index.js",
     "dev": "node server/index.js"
   },
