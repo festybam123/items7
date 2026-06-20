@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+
+/* Full-page background image */
+html, body, #root {
+  height: 100%;
+}
+
+
+/* Optional overlay for readability (toggle by uncommenting) */
+/*
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  pointer-events: none;
+}
+*/
+
+/* Keep default link/button styles minimal for now */
+a { text-decoration: none; }
+button { cursor: pointer; }
+
+/* Removed rotating background pseudo-element */

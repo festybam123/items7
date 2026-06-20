@@ -1,0 +1,93 @@
+(function ($) {
+  'use strict'
+
+  /* Masonry --------------------- */
+  function masonrySetup () {
+    var $container = $('.obb-masonry-container');
+    
+    // Ensure Masonry initializes after images have loaded
+    $container.imagesLoaded(function() {
+      $container.masonry({
+        gutter: '.obb-grid-spacer',
+        itemSelector: '.obb-masonry-wrapper'
+      });
+    });
+  }
+
+  /* Isotope --------------------- */
+  function isotopeSetup () {
+    $('.obb-portfolio, .obb-posts').each(function (index, obj) {
+      var filterID = obj.getAttribute('data-id')
+      var $grid = $('#' + filterID + ' .obb-masonry-container.obb-isotope')
+      // Quick search regex
+      var qsRegex
+
+      // Initialize Isotope after images have loaded
+      $grid.imagesLoaded(function () {
+        $grid.isotope({
+          itemSelector: '.obb-masonry-wrapper',
+          percentPosition: true,
+          masonry: {
+            gutter: '.obb-grid-spacer'
+          }
+        })
+      });
+
+      // use value of search field to filter
+      $('#' + filterID + ' .obb-filter-search').on('click', 'input', function () {
+        $('.obb-filter-buttons button').off('click')
+        var $quicksearch = $('.quicksearch').keyup(debounce(function () {
+          qsRegex = new RegExp($quicksearch.val(), 'gi')
+          $grid.isotope({
+            filter: function () {
+              return qsRegex ? $(this).text().match(qsRegex) : true
+            }
+          })
+        }, 200))
+      })
+
+      $('#' + filterID + ' .obb-filter-buttons').on('click', 'button', function () {
+        var filterValue = $(this).attr('data-filter')
+        $grid.isotope({ filter: filterValue })
+      })
+
+      // debounce so filtering doesn't happen every millisecond
+      function debounce (fn, threshold) {
+        var timeout
+        threshold = threshold || 100
+        return function debounced () {
+          clearTimeout(timeout)
+          var args = arguments
+          var _this = this
+          function delayed () {
+            fn.apply(_this, args)
+          }
+          timeout = setTimeout(delayed, threshold)
+        }
+      }
+    })
+  }
+
+  // Recalculate layout on scroll to ensure items are in the correct positions
+  function recalculateLayoutOnScroll() {
+    $(window).on('scroll', function() {
+      $('.obb-masonry-container').each(function() {
+        var $this = $(this);
+        if ($this.is(':visible')) {
+          $this.masonry('layout');
+        }
+      });
+    });
+  }
+
+  $(document).ready(() => {
+    isotopeSetup();
+    masonrySetup();
+    recalculateLayoutOnScroll();
+  });
+
+  $(window).on('resize', () => {
+    isotopeSetup();
+    masonrySetup();
+  });
+})(jQuery);

@@ -1,0 +1,385 @@
+/* .take .course-player__html-item {max-width:100%;} */
+.take .kapow-player .button-border{border: 2px solid;}
+
+/* this is color overirdes that can be added to the SFC settings
+
+<style>
+.take  {
+    --cta-bg: #252525;
+    --cta-text: #FFFFFF;
+}
+</style>
+*/
+
+/* This is a class for a two column layout in text lessons */
+
+.take  .side-by-side { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; }
+.take  .side-by-side__image { width: 100%; margin-bottom: 32px; }
+@media screen and (min-width: 768px) { .take  .side-by-side__image { flex: 1 1 50%; max-width: 50%; margin-bottom: 0; display:block; height:auto; width:100%; } }
+.take  .side-by-side__text { width: 100%; margin-bottom: 32px;  }
+@media screen and (min-width: 768px) { .take  .side-by-side__text { flex: 1 1 50%; max-width: 50%; padding-left:1em; } }
+
+/* These are classes for upgrade banners in lessons */
+
+.take  .cta {
+    line-height: 1.5rem;
+    font-weight: 400;
+    /* font-family: Lato; */
+    box-sizing: inherit;
+    font-size: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: .5rem;
+    padding: 1.5rem;
+    border: 1px solid;
+    border-radius: .125rem;
+    list-style-type: none;
+    background-color: var(--cta-bg,#F2F3F5);
+    
+    
+}
+
+@media (min-width: 415px) {
+    .take  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+.take   .cta-content {
+    margin: 0 0 0.5rem;
+}
+
+.take   .cta-content,
+.take   .cta-content h1,
+.take   .cta-content h2,
+.take   .cta-content h3,
+.take   .cta-content h4,
+.take   .cta-content h5{
+    color: var(--cta-text,inherit);
+}
+.take   .cta-side .cta-content {
+    max-width:70%;
+}
+.take  .cta h4 {
+  font-size: 12px;
+  font-size: 0.75rem;
+  margin: 0;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+
+.take  .cta .button, .take  .kapow-player .button {
+    margin: 0 0 0.5rem;
+}
+.take  .cta .button,  .take  .kapow-player .button{
+    list-style-type: none;
+    box-sizing: inherit;
+    text-align: center;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 0;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    height: 40px;
+    text-decoration: none;
+    /* background-color: #100d59;
+    color: #fff; */
+}
+
+.take  .kapow-player ul {
+    margin-top: 0em !important;
+    padding-left: 0px !important;
+}
+
+.take  .kapow-player img.fr-dii {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    max-width: 100% !important;
+}
+
+.kapow-player .block-timeline {
+    overflow: hidden;
+    position: relative
+}
+
+@media print {
+    .kapow-player .block-timeline {
+        background-color: #fff !important
+    }
+}
+
+.kapow-player .block-timeline .timeline {
+    padding: 5rem 2rem
+}
+
+.kapow-player .block-timeline .timeline__container>div {
+    width: 100%
+}
+
+@media (min-width:48em) {
+    .kapow-player .block-timeline .timeline__container>div {
+        width: 80rem;
+        max-width: 95%
+    }
+}
+
+.kapow-player .block-timeline .timeline__container>.timeline-card:first-child:after,
+.kapow-player .block-timeline .timeline__container>div:first-child .timeline-card:after {
+    border: none
+}
+
+.kapow-player .block-timeline .timeline__container>.timeline-card:last-child,
+.kapow-player .block-timeline .timeline__container>div:last-child .timeline-card {
+    margin-bottom: 0
+}
+
+.timeline {
+}
+
+.kapow-player .timeline__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+@media print {
+    .kapow-player .timeline__container {
+        margin: 0;
+        padding-bottom: 0;
+        background-color: #fff
+    }
+}
+
+.kapow-player .timeline-card {
+    position: relative;
+    box-sizing: content-box;
+    width: 100%;
+    margin: 0 auto 7rem;
+    border-radius: .4rem;
+    background: #ccc;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+@media (min-width:48em) {
+    .kapow-player .timeline-card {
+        width: 80rem;
+        max-width: 95%
+    }
+}
+
+.kapow-player .timeline-card:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -7rem;
+    height: 6.7rem;
+    border: 1px solid rgba(0, 0, 0, .1)
+}
+
+.kapow-player .timeline-dark-theme .timeline-card:after {
+    background: hsla(0, 0%, 100%, .4)
+}
+
+.kapow-player .timeline-card:before {
+    content:""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: .4rem 0 0 .4rem;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .1)
+}
+
+.kapow-player .timeline-card__body {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 2rem 4rem;
+    border-radius: .4rem;
+    background: #fff;
+    opacity: .93;
+    box-shadow: 0 0 1rem 0 transparent;
+    transition: opacity .3s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden
+}
+
+@media print {
+    .kapow-player .timeline-card__body {
+        opacity: 1
+    }
+}
+
+.kapow-player .timeline-card__body:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: .4rem;
+    border-radius: .4rem 0 0 .4rem;
+    background: var(--ps-color-1);
+    opacity: .4;
+    transition: opacity .3s
+}
+
+@media print {
+    .kapow-player .timeline-card__body:before {
+        opacity: 1
+    }
+}
+
+.kapow-player .timeline-card--active .timeline-card__body {
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text
+}
+
+.kapow-player .timeline-card--active .timeline-card__body:before {
+    opacity: 1
+}
+
+.kapow-player .timeline-card__main-wrap {
+    opacity: .25;
+    transition: opacity .3s
+}
+
+@media print {
+    .kapow-player .timeline-card__main-wrap {
+        opacity: 1
+    }
+}
+
+.kapow-player .timeline-card--active .timeline-card__main-wrap {
+    opacity: 1
+}
+
+.kapow-player .timeline-card__date {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 700;
+    color: #50abf1
+}
+
+@media print {
+    .kapow-player .timeline-card__date {
+        font-size: 1.5rem
+    }
+}
+
+.kapow-player .timeline-card__title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    line-height: 1.85;
+    font-weight: 700;
+    letter-spacing: .02rem
+}
+
+@media print {
+    .kapow-player .timeline-card__title {
+        font-size: 1.5rem
+    }
+}
+
+.timeline-card__description {
+}
+
+.kapow-player .timeline-card__description a {
+    color: var(--ps-color-1);
+}
+
+@media print {
+    .kapow-player .timeline-card__description {
+        font-size: 1.3rem;
+        margin-bottom: 2rem
+    }
+}
+
+.kapow-player .timeline-card__audio {
+    margin-bottom: 1rem
+}
+
+.kapow-player .timeline-card__audio .audio-player__housing {
+    margin: 0
+}
+
+.kapow-player .timeline-card__linkEmbed {
+    margin-bottom: 2rem
+}
+
+.kapow-player .timeline-card__videoEmbed {
+    margin-bottom: 3rem
+}
+
+.kapow-player .timeline-card__visual {
+    margin-top: 3rem
+}
+
+.kapow-player .timeline-card .embed,
+.kapow-player .timeline-card .figure-video,
+.kapow-player .timeline-card .img {
+    margin-bottom: 0;
+    line-height: 0
+}
+
+.kapow-player .timeline-card .img-img {
+    margin-left: 0;
+    margin-right: 0
+}
+
+@media (min-width:48em) {
+    .kapow-player .timeline-card__body {
+        padding: 2rem 4rem 2rem
+    }
+}
+
+#ps-container-top-full{
+    position:fixed;z-index:9999;width:100%;top:0px;
+}
+#ps-container-top{
+    position:fixed;z-index:9999;width:100%;top:4%;
+}
+#ps-container-top-left{
+    position:fixed;z-index:9999;top:4%;left:1%;
+}
+#ps-container-top-right{
+    position:fixed;z-index:9999;top:4%;right:2%;
+}
+#ps-container-bottom-full{
+    position:fixed;z-index:9999;width:100%;bottom:0px;
+}
+
+#ps-container-bottom{
+    position:fixed;z-index:9999;width:100%;bottom:4%;
+}
+#ps-container-bottom-left{
+    position:fixed;z-index:9999;bottom:4%;left:1%;
+}
+#ps-container-bottom-right{
+    position:fixed;z-index:9999;bottom:4%;right:2%;
+}
+/* fix mobile popup issue */
+div[class*="kapow-popup-"]{max-width:95vw;}
+
+
+

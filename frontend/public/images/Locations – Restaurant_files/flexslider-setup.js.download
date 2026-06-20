@@ -1,0 +1,112 @@
+(function ($) {
+  'use strict';
+
+  // Flexslider Setup
+  function obbFlexSliderSetup() {
+    $('.obb-slideshow').each(function () {
+      const slideshowID = $(this).data('slide-id');
+      const $slider = $('#' + slideshowID + ' .obb-flexslider');
+      const slideCount = $slider.data('per-slide');
+      const smoothHeight = $slider.data('type') === 'testimonials' ? false : $slider.data('height');
+      const slideSpace = $slider.data('slidespace') || 0; // Use the data attribute or default to 0 if not set
+      const settings = {
+        slideshowSpeed: $slider.data('speed'),
+        animationDuration: 800,
+        animation: $slider.data('transition'),
+        video: false,
+        useCSS: false,
+        prevText: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>',
+        nextText: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>',
+        touch: false,
+        controlNav: true,
+        animationLoop: true,
+        smoothHeight: smoothHeight,
+        pauseOnAction: true,
+        pauseOnHover: true,
+        itemMargin: parseInt(slideSpace),
+        minItems: 1,
+        start: function (slider) {
+          slider.removeClass('loading');
+          $('.preloader').hide();
+          slider.resize();
+        }
+      };
+
+      // Mobile or single slide handling
+      if ($(window).width() <= 1024 || slideCount === 1) {
+        settings.maxItems = 1;
+        settings.minItems = 1;
+      } else {
+        settings.maxItems = slideCount;
+        settings.itemWidth = 320; // Consistent width to avoid issues
+        settings.move = 1;
+      }
+
+      if ($.flexslider) {
+        $slider.flexslider(settings);
+      }
+    });
+  }
+
+  // Modify styles based on slideshow settings
+  function modifyStyles() {
+    $('.obb-slideshow').each(function () {
+      const slideshowID = $(this).data('slide-id');
+      const $slider = $('#' + slideshowID + ' .obb-flexslider');
+      const slideNav = $(this).data('slide-nav');
+      const slideArrows = $(this).data('slide-arrows');
+      const slideCount = $slider.data('per-slide');
+
+      // Hide navigation if necessary
+      if (!slideNav) {
+        $('#' + slideshowID + ' .flex-control-nav').hide();
+      }
+
+      // Hide arrows if necessary
+      if (!slideArrows) {
+        $('#' + slideshowID + ' .flex-direction-nav').hide();
+      }
+
+      // Remove multi-post class if only one slide
+      if (slideCount === 1) {
+        $(this).removeClass('obb-multi-posts-slide');
+      }
+    });
+  }
+
+  // Debounce function to limit resize triggers
+  function debounce(func, delay) {
+    let inDebounce;
+    return function () {
+      const context = this;
+      const args = arguments;
+      clearTimeout(inDebounce);
+      inDebounce = setTimeout(() => func.apply(context, args), delay);
+    };
+  }
+
+  // Trigger window resize when certain blocks are clicked
+  function resizeSlider() {
+    $('.wp-block[data-type="obb/slideshow-block"], .edit-post-visual-editor .obb-slideshow-block').on('click', function () {
+      $(window).trigger('resize');
+    });
+  }
+
+  // Document ready actions
+  $(document).ready(function () {
+    resizeSlider();
+  });
+
+  // Window load actions
+  $(window).on('load', function () {
+    obbFlexSliderSetup();
+    modifyStyles();
+  });
+
+  // Window resize actions with debounce to improve performance
+  $(window).on('resize', debounce(function () {
+    obbFlexSliderSetup();
+    modifyStyles();
+  }, 250));
+
+})(jQuery);
